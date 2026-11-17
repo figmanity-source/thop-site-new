@@ -7,7 +7,7 @@ export function Split({ text, wrap = false }: { text: string; wrap?: boolean }) 
     <>
       {words.map((w, wi) => (
         <Fragment key={wi}>
-          <span className="st-word" style={{ display: "inline-block" }}>
+          <span className={w === "THOP" ? "st-word type-thop" : "st-word"} style={{ display: "inline-block" }}>
             {Array.from(w).map((c, ci) =>
               wrap ? (
                 <span className="char-wrapper" key={ci} style={{ display: "inline-block" }}>

@@ -10,7 +10,7 @@ export default function SinglePart({ section, id, pretitle, title, text, extra }
 }) {
   const ref = useRef<HTMLElement>(null);
   useFx(ref, (el) => {
-    pinLayer(el, el.querySelector(".fps-single-part-section-wrapper"), "block");
+    pinLayer(el, el.querySelector(".fps-single-part-section-wrapper"), section === "Hands" ? "flex" : "block");
     const chars = el.querySelectorAll(".fps-single-part-section-title .st-char");
     gsap.timeline({ scrollTrigger: { trigger: el, start: "top top", end: "bottom bottom", scrub: 0.6 } })
       .fromTo(el.querySelector(".fps-single-part-section-pretitle"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, 0.02)

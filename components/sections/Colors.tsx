@@ -4,6 +4,7 @@ import { heroSlides, heroCta } from "@/lib/content";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { pinLayer, useFx } from "@/lib/useFx";
 import { NE } from "../Icons";
+import { BrandType } from "../BrandType";
 import { useEnquiry } from "../Enquiry";
 
 /** The colour-swap section → the six THOP hero slides; models swap per slide. */
@@ -50,10 +51,9 @@ export default function Colors() {
               style={{
                 ["--text-first-color" as string]: "#ffffff",
                 ["--text-second-color" as string]: h.colors[0],
-                fontSize: `min(26vh, ${Math.min(13, 118 / h.center.length)}vw)`,
               }}
             >
-              {h.center}
+              <BrandType text={h.center} />
             </h4>
           ))}
         </div>

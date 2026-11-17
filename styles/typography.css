@@ -1,0 +1,236 @@
+/* BIOVITY Website Master Document v3.4, PDF page 5.
+   Load after the existing styles. Only typography is changed here.
+   Fluid sizes interpolate from 360px to 1440px viewport widths.
+   Existing BIOVITY wordmarks and data numerals retain their special sizing. */
+:root {
+  --type-display: clamp(48px, calc(34.666667px + 3.703704vw), 88px);
+  --type-h1: clamp(40px, calc(32px + 2.222222vw), 64px);
+  --type-h2: clamp(30px, calc(25.333333px + 1.296296vw), 44px);
+  --type-h3: clamp(20px, calc(18.666667px + 0.370370vw), 24px);
+  --type-body-lg: clamp(18px, calc(17.333333px + 0.185185vw), 20px);
+  --type-body: clamp(16px, calc(15.666667px + 0.092593vw), 17px);
+  --type-label: clamp(11px, calc(10.666667px + 0.092593vw), 12px);
+  --type-button: 13px;
+  --type-quote: clamp(24px, calc(21.333333px + 0.740741vw), 32px);
+}
+
+/* A display treatment for page identifiers; ordinary section headings use H2. */
+.sheet-word {
+  font-size: var(--type-display);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: var(--ls-display);
+  text-transform: none;
+}
+
+.sheet-title {
+  font-size: var(--type-h1);
+  font-weight: 300;
+  line-height: 1.1;
+  text-transform: none;
+}
+
+.big-text-section .fps-timeless-wrapper .fps-timeless-text,
+[data-section=Movement] .fps-movement-content-wrapper .fps-movement-text,
+.single-part-section .fps-single-part-section-wrapper .fps-single-part-section-title,
+[data-section=Straps] .content-wrapper h2,
+[data-section=Parts] .top-w h3,
+[data-section=Colors] .content-wrapper .texts-w h4,
+[data-section=Intro] .fps-bottom-wrapper .fps-watch-weight-wrapper,
+[data-section=Disassembly] [data-mesh] .mesh-title,
+.home-block h2,
+.enquiry-panel h2,
+.centre-title,
+.footer-title,
+.subpage-footer .footer-title {
+  font-size: var(--type-h2);
+  font-weight: 300;
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-display);
+  text-transform: none;
+}
+
+/* Existing mechanism rules use !important; match only those type properties. */
+[data-section=Mechanism] .fps-mechanism-first .fps-mechanism-first-inner .fps-mechanism-title {
+  font-size: var(--type-h2) !important;
+  line-height: var(--lh-h2) !important;
+  font-weight: 300;
+  letter-spacing: var(--ls-display);
+  text-transform: none;
+}
+
+.small-title,
+.step-name,
+.founder-name,
+.faq-item button,
+.intro-right-title,
+.colors-left,
+.colors-right,
+.value-grid h3,
+.pathway-grid h3,
+.sheet-steps h3,
+.self-check h3,
+.hallmark-layout h3,
+[data-section=Disassembly] [data-mesh] .small-title,
+[data-section=Parts] ul li .name {
+  font-size: var(--type-h3);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Copy sometimes shares the original small-title class; restore its body role. */
+.body-text,
+.intro-right-body,
+.colors-body,
+.centre-body,
+.footer-body,
+.subpage-footer .footer-body,
+.footer-meta,
+.straps-bottom,
+.straps-bottom p,
+.step-text,
+.sp-copy,
+.biology-compare li,
+.team-slot dd,
+.faq-item p,
+.journey-line p,
+.step-lines li,
+.enquiry-body,
+.enquiry-note,
+.enquiry-status,
+.enquiry-error,
+.enquiry-panel input,
+.enquiry-panel select,
+.enquiry-panel textarea,
+.enquiry-panel .enquiry-choice,
+.enquiry-panel .enquiry-check,
+[data-section=Disassembly] [data-mesh] .body-text,
+[data-section=Disassembly] .discover-extra ul,
+.single-part-section .fps-single-part-section-wrapper .fps-single-part-section-text,
+[data-section=MovementWatchRight] .fps-vertical-inner .fps-left-infos-wrapper .fps-movement-content,
+[data-section=VerticalText] .fps-vertical-inner .fps-left-infos-wrapper .vt-body {
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.readable,
+.mech-body,
+.vt-body {
+  font-size: var(--type-body) !important;
+  font-weight: 400;
+  line-height: 1.6 !important;
+}
+
+.home-lead,
+.sheet-lead,
+[data-section=Mechanism] .fps-mechanism-first .fps-movement-title {
+  font-size: var(--type-body-lg) !important;
+  font-weight: 400;
+  line-height: var(--lh-body-lg) !important;
+}
+
+/* Label treatment also covers captions inside the inherited section markup. */
+.caption,
+.caption-dark,
+.home-kicker,
+.journey-kicker,
+.journey-eyebrow,
+.sp-pretitle,
+.intro-scroll,
+.intro-sub,
+.colors-sub,
+.steps-ticker,
+.step-lines span,
+.footer-col-label,
+.footer-pending dt,
+.team-slot dt,
+.founder-portrait span,
+.biology-compare strong,
+.sheet-text-link,
+.enquiry-panel label,
+.enquiry-panel legend,
+.pathway-grid a span,
+.sheet-steps span,
+.footer-meta nav a,
+.subpage-footer .footer-meta a,
+[data-section=Mechanism] .fps-caption,
+[data-section=Intro] .fps-color-wrapper,
+[data-section=Disassembly] .hovers-w [data-hover-id] p,
+[data-section=Parts] .top-w .description-w .left p,
+[data-section=Parts] ul li p {
+  font-size: var(--type-label);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+}
+
+[data-section=Parts] ul li p.name {
+  font-size: var(--type-h3);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.type-thop {
+  font-weight: 700;
+}
+
+/* Existing decorative span rules must not turn THOP emphasis into a line. */
+.big-text-section .fps-timeless-wrapper .fps-watch-title .type-thop,
+[data-section=Movement] .fps-watch-title .type-thop {
+  display: inline;
+  width: auto;
+  height: auto;
+  background: none;
+}
+
+.enquiry-panel .enquiry-choice,
+.enquiry-panel .enquiry-check {
+  font-size: var(--type-body);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.pill,
+#header .enquire,
+.enquiry-close,
+.whatsapp-float,
+[data-section=Disassembly] [data-mesh] .close-button {
+  font-family: var(--font-sans);
+  font-size: var(--type-button);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: var(--ls-button);
+  text-transform: uppercase;
+}
+
+.sheet-quote {
+  font-size: var(--type-quote);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.ld-num,
+.metrics li strong,
+.hallmark-ring button,
+[data-section=Mechanism] .fps-seconds-wrapper p,
+[data-section=Colors] .counter {
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Keep the existing full-screen menu layout, using the H1 scale for its links. */
+@media (max-width: 1279px) {
+  #header nav > a {
+    font-size: var(--type-h1);
+    line-height: 1.15;
+  }
+}

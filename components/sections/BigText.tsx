@@ -3,6 +3,7 @@ import { useRef, type ReactNode } from "react";
 import { gsap } from "@/lib/gsap";
 import { useFx } from "@/lib/useFx";
 import { Arrow } from "../Icons";
+import { BrandType } from "../BrandType";
 
 type Props = {
   section: "Timeless" | "Images" | "Movement";
@@ -48,13 +49,13 @@ export default function BigText({ section, id, title, lines, info, dark = false,
 
   const content = (
     <div className={isMovement ? "fps-movement-content-wrapper" : "fps-timeless-wrapper"}>
-      <p className={`fps-watch-title ${textCls} grey-line`} data-model-fade="">{title[0]}<span></span>{title[1]}</p>
+      <p className={`fps-watch-title ${textCls} grey-line`} data-model-fade=""><BrandType text={title[0]} /><span></span><BrandType text={title[1]} /></p>
       <div className={`${isMovement ? "fps-movement-content" : "fps-timeless-content"} ${textCls}`}>
         {lines.map((l, i) => (
           <span className="grey-line" data-model-fade="" key={i}>
             {isMovement && i === 1 ? <Arrow /> : null}
             {i > 0 ? <br /> : null}
-            {l}
+            <BrandType text={l} />
             {!isMovement && i === lines.length - 1 ? <Arrow /> : null}
           </span>
         ))}

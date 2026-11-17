@@ -35,7 +35,7 @@ const Scene = dynamic(() => import("./three/Scene"), { ssr: false });
 
 function TwinCta() {
   const openEnquiry = useEnquiry();
-  return <button className="pill" type="button" onClick={() => openEnquiry("BIOBLUEPRINT")}>{twin.cta}</button>;
+  return <button className="pill bioblueprint-cta" type="button" onClick={() => openEnquiry("BIOBLUEPRINT")}>{twin.cta}</button>;
 }
 
 export default function Experience() {

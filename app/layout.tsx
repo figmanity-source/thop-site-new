@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Poppins } from "next/font/google";
 import "../styles/sections.css";
 import "./globals.css";
+import "../styles/typography.css";
 
 const poppins = Poppins({
   subsets: ["latin"],

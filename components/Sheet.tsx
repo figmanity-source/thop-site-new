@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import EnquireButton from "./EnquireButton";
 import HeroParticles from "./HeroParticles";
+import { BrandType } from "./BrandType";
 import type { Interest } from "@/lib/content";
 
 export function SheetHero({
@@ -24,8 +25,8 @@ export function SheetHero({
       <HeroParticles night={night} />
       <div className="sheet-hero-copy">
         {kicker ? <p className="home-kicker">{kicker}</p> : null}
-        <p className="sheet-word" style={{ fontSize: `clamp(48px, ${Math.min(12, 90 / Math.max(word.length, 6))}vw, 160px)` }}>{word}</p>
-        <h1 className="sheet-title">{title}</h1>
+        <p className="sheet-word"><BrandType text={word} /></p>
+        <h1 className="sheet-title"><BrandType text={title} /></h1>
         {lead ? <p className="sheet-lead">{lead}</p> : null}
         {children}
       </div>
@@ -54,7 +55,7 @@ export function SheetBand({
     <section id={id} data-object={object} className={night ? "home-block sheet-band surface-night" : "home-block sheet-band"}>
       <div className="home-inner">
         {kicker ? <p className="home-kicker" data-reveal="">{kicker}</p> : null}
-        {title ? <h2 data-reveal="">{title}</h2> : null}
+        {title ? <h2 data-reveal=""><BrandType text={title} /></h2> : null}
         {lead ? <p className="home-lead" data-reveal="">{lead}</p> : null}
         {children ? <div data-reveal="">{children}</div> : null}
       </div>

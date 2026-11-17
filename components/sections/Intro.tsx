@@ -4,6 +4,7 @@ import { brand, heroCta, heroSlides, seeSteps } from "@/lib/content";
 import { gsap } from "@/lib/gsap";
 import { useFx } from "@/lib/useFx";
 import { Split } from "../Split";
+import { BrandType } from "../BrandType";
 import { NE } from "../Icons";
 import { scrollToTarget } from "../TransitionOverlay";
 import { useEnquiry } from "../Enquiry";
@@ -56,7 +57,7 @@ export default function Intro() {
       <div className="fps-bottom-wrapper">
         <div data-fade="">
           <div className="fps-watch-weight-wrapper">
-            <p className="fps-watch-weight">{s.center}</p>
+            <p className="fps-watch-weight"><BrandType text={s.center} /></p>
           </div>
         </div>
       </div>

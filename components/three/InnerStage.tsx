@@ -2,11 +2,11 @@
 
 import { Suspense, useEffect, useMemo, useRef, type RefObject } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Lightformer, useAnimations, useGLTF } from "@react-three/drei";
+import { Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
 import { chrome, darkChrome, glass, setOpacity } from "./materials";
 
-const MODEL = "/models/man-base-rigged.glb";
+import { useTwinModel } from "./useTwinModel";
 type Key = "dna" | "cell" | "twin";
 
 function Studio() {
@@ -135,34 +135,12 @@ function CellOrb({ root }: { root: RefObject<THREE.Group | null> }) {
 }
 
 function Figure({ root }: { root: RefObject<THREE.Group | null> }) {
-  const inner = useRef<THREE.Group>(null);
-  const { scene: model, animations } = useGLTF(MODEL, false);
-  const { actions, names } = useAnimations(animations, inner);
-  const fit = useMemo(() => {
-    const mat = chrome();
-    model.traverse((c) => {
-      const mesh = c as THREE.Mesh;
-      if (mesh.isMesh) {
-        mesh.material = mat;
-        mesh.frustumCulled = false;
-      }
-    });
-    model.updateMatrixWorld(true);
-    const box = new THREE.Box3().setFromObject(model);
-    const size = box.getSize(new THREE.Vector3());
-    return { offset: box.getCenter(new THREE.Vector3()).multiplyScalar(-1), scale: 2.1 / Math.max(size.y, 0.0001) };
-  }, [model]);
-  useEffect(() => {
-    const walk = actions.walk ?? actions[names.find((n) => n.toLowerCase() === "walk") ?? ""];
-    if (!walk) return;
-    walk.reset().play();
-    walk.timeScale = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 0.72;
-  }, [actions, names]);
+  const { model, offset, scale } = useTwinModel();
   return (
     <group ref={root}>
-      <group scale={fit.scale}>
-        <group ref={inner} position={fit.offset}>
-          <primitive object={model} />
+      <group scale={scale}>
+        <group position={offset}>
+          <primitive object={model} dispose={null} />
         </group>
       </group>
     </group>
@@ -254,5 +232,3 @@ export default function InnerStage() {
     </div>
   );
 }
-
-useGLTF.preload(MODEL, false);
