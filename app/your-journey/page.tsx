@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageFrame from "@/components/PageFrame";
 import SelfCheck from "@/components/SelfCheck";
 import { EnquiryForm } from "@/components/Enquiry";
 import { SheetHero, SheetBand, BookButton, BulletList } from "@/components/Sheet";
 import JourneyLine from "@/components/JourneyLine";
 import VisitFaq from "@/components/VisitFaq";
-import { InlineHelix } from "@/components/three/InnerStage";
 import { journeySteps, centreRooms } from "@/lib/pages";
 import { brand, centre } from "@/lib/content";
 
@@ -60,7 +60,18 @@ export default function YourJourneyPage() {
           ))}
         </ol>
       </SheetBand>
-      <SheetBand title="Find us in Mumbai." headingVisual={<InlineHelix />}>
+      <SheetBand
+        title="Find us in Mumbai."
+        headingVisual={
+          <Image
+            className="sheet-brand-corridor"
+            src="/images/biovity-lobby.webp"
+            alt="BIOVITY Centre of Biological Longevity wordmark at the end of a metallic corridor"
+            width={1254}
+            height={1254}
+          />
+        }
+      >
         <ul className="sheet-points">
           <li>Address [to be supplied]</li>
           <li>Opening hours [to be supplied]</li>
