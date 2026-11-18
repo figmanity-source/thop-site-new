@@ -156,7 +156,7 @@
 .enquiry-form label,
 .enquiry-form legend,
 .pathway-grid a span,
-.sheet-steps span,
+.sheet-steps li > span,
 .footer-meta nav a,
 .subpage-footer .footer-meta a,
 [data-section=Mechanism] .fps-caption,
@@ -257,6 +257,13 @@
   font-family: var(--font-sans);
   font-weight: 300;
   font-variant-numeric: tabular-nums;
+}
+
+/* The bundled Poppins face uses proportional digits even with tabular-nums. */
+.type-digit {
+  display: inline-block;
+  inline-size: .65em;
+  text-align: center;
 }
 
 .cine-comparison-select {

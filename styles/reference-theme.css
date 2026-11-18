@@ -127,8 +127,8 @@
 .cine-chapter-rail a.active > i { background: #fff; border-color: #fff; box-shadow: none; }
 
 @media (max-width: 1279px) {
-  .cine-header nav.open { background: #e7e7e4fc; }
-  .cine-header.on-dark nav.open { background: #101010fc; }
+  .cine-header nav { background: #e7e7e4fc; }
+  .cine-header.on-dark nav { background: #101010fc; }
   .cine-hero { min-height: 1100px; }
   .cine-hero > .cine-hero-copy { --hero-copy-offset: 640px; width: 65%; }
   .cine-hero > .cine-hero-word { top: 30%; }

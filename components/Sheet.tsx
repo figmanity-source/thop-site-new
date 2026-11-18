@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import EnquireButton from "./EnquireButton";
 import HeroParticles from "./HeroParticles";
 import { BrandType } from "./BrandType";
+import { TabularDigits } from "./TabularDigits";
 import type { Interest } from "@/lib/content";
 import SectionTransition from "./home/SectionTransition";
 
@@ -74,7 +75,7 @@ export function Numbered({ rows }: { rows: readonly (readonly [string, string, s
     <ol className="sheet-steps">
       {rows.map(([n, name, text]) => (
         <li key={n}>
-          <span>{n}</span>
+          <span><TabularDigits value={n} /></span>
           <div>
             <h3>{name}</h3>
             <p>{text}</p>

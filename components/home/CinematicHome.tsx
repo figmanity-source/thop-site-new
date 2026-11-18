@@ -11,6 +11,7 @@ import { brand, heroSlides, heroCta, seeSteps, healthspan, why, protocol, journe
 import { EnquiryProvider, useEnquiry } from "../Enquiry";
 import { FooterColumns } from "../SiteFooter";
 import { BrandType } from "../BrandType";
+import { TabularDigits } from "../TabularDigits";
 import Loader from "../Loader";
 import SectionTransition from "./SectionTransition";
 import { buildPulzMotion } from "./PulzMotion";
@@ -43,10 +44,10 @@ function Chapter({ id, number, label, title, lead, children, model, light = fals
   return (
     <section id={id} data-cinema-model={model ?? "none"} className={`cine-section ${light ? "cine-light" : ""} ${className}`}>
       {["discover", "dox"].includes(id) && <SectionTransition />}
-      <div className="cine-section-top"><span><BrandType text={label} /></span>{number && <span className="cine-numeral">{number}</span>}</div>
+      <div className="cine-section-top"><span><BrandType text={label} /></span>{number && <span className="cine-numeral"><TabularDigits value={number} /></span>}</div>
       <div className="cine-section-body">
         <div className="cine-heading" data-cine-reveal>
-          {number && <span className="cine-chapter-number" aria-hidden="true">{number}</span>}
+          {number && <span className="cine-chapter-number" aria-hidden="true"><TabularDigits value={number} /></span>}
           <h2 data-model-fade=""><BrandType text={title} /></h2>
           {lead && <p className="cine-lead">{lead}</p>}
         </div>
@@ -214,7 +215,7 @@ function Home() {
         </section>
 
         <div className="cine-model-index" aria-label="The five THOP steps">
-          {heroFilmCaptions.map((caption, index) => <a href={`#${stages[index]}`} key={caption.name}><span><span className="cine-numeral">{String(index + 1).padStart(2, "0")}</span> {caption.name}</span><strong>{caption.line}</strong><Arrow /></a>)}
+          {heroFilmCaptions.map((caption, index) => <a href={`#${stages[index]}`} key={caption.name}><span><span className="cine-numeral"><TabularDigits value={String(index + 1).padStart(2, "0")} /></span> {caption.name}</span><strong>{caption.line}</strong><Arrow /></a>)}
         </div>
 
         <section id="healthspan" className="cine-section cine-healthspan" data-cinema-model="none">
@@ -229,7 +230,7 @@ function Home() {
         <section id="five-steps" className="cine-section cine-light cine-protocol" data-cinema-model="none">
           <div className="cine-section-top"><span>THE HUMAN OPTIMISATION PROTOCOL</span></div>
           <div className="cine-narrow" data-cine-reveal><p className="cine-label">THE HUMAN OPTIMISATION PROTOCOL</p><h2><BrandType text={protocol.title} /></h2><p className="cine-lead">{protocol.body}</p></div>
-          <div className="cine-stage-list">{protocol.steps.map(([number, name, line], index) => <a key={name} href={`#${stages[index]}`} data-cine-reveal><span className={`cine-stage-symbol symbol-${index}`} aria-hidden="true"><i /><i /><i /></span><span className="cine-stage-index">{number}</span><span className="cine-stage-title">{name}</span><span className="cine-stage-description">{line}</span><Arrow /></a>)}</div>
+          <div className="cine-stage-list">{protocol.steps.map(([number, name, line], index) => <a key={name} href={`#${stages[index]}`} data-cine-reveal><span className={`cine-stage-symbol symbol-${index}`} aria-hidden="true"><i /><i /><i /></span><span className="cine-stage-index"><TabularDigits value={number} /></span><span className="cine-stage-title">{name}</span><span className="cine-stage-description">{line}</span><Arrow /></a>)}</div>
         </section>
 
         <Chapter id="discover" number="01" label={heroSlides[1].tag} title={journey.steps[0].line} lead={journey.steps[0].text} model="dna" light className="cine-discover">
@@ -237,7 +238,7 @@ function Home() {
         </Chapter>
 
         <Chapter id="bioblueprint" number="02" label={blueprint.eyebrow} title={blueprint.title.join(" ")} lead={blueprint.intro} model="cell" light className="cine-blueprint">
-          <div className="cine-test-grid">{blueprint.tests.map((test, index) => <article className="cine-test-card" key={test.label} data-cine-reveal><div className="cine-test-card-top"><span>0{index + 1}</span><span className="cine-mini-orbit" aria-hidden="true" /></div><p className="cine-label">{test.label}</p><h3>{test.caption}</h3><p>{test.text}</p></article>)}</div>
+          <div className="cine-test-grid">{blueprint.tests.map((test, index) => <article className="cine-test-card" key={test.label} data-cine-reveal><div className="cine-test-card-top"><span><TabularDigits value={String(index + 1).padStart(2, "0")} /></span><span className="cine-mini-orbit" aria-hidden="true" /></div><p className="cine-label">{test.label}</p><h3>{test.caption}</h3><p>{test.text}</p></article>)}</div>
           <p className="cine-footnote" data-cine-reveal>{blueprint.smallPrint}</p>
         </Chapter>
 
@@ -258,12 +259,12 @@ function Home() {
 
         <section id="how-cellution" className="cine-section cine-light cine-process" data-cinema-model="none">
           <div className="cine-section-top"><span>{howCellution.eyebrow}</span></div><h2 data-cine-reveal>{howCellution.title}</h2>
-          <ol className="cine-process-list">{howCellution.steps.map((step) => <li key={step.n} data-cine-reveal><span>{step.n}</span><div><h3>{step.name}</h3><p>{step.text}</p></div></li>)}</ol>
+          <ol className="cine-process-list">{howCellution.steps.map((step) => <li key={step.n} data-cine-reveal><span><TabularDigits value={step.n} /></span><div><h3>{step.name}</h3><p>{step.text}</p></div></li>)}</ol>
           <div className="cine-process-end" data-cine-reveal><div><p className="cine-label">THREE AREAS</p><ul>{howCellution.areas.map((area) => <li key={area}>{area}</li>)}</ul></div><div><p>{howCellution.disclaimer}</p><Action interest="CELLUTION">{howCellution.cta}</Action></div></div>
         </section>
 
         <Chapter id="continuum" number="05" label={continuum.eyebrow} title={continuum.title} lead={continuum.body} model="dna" light className="cine-continuum">
-          <div className="cine-copy-panel" data-cine-reveal><p className="cine-label">IT CAN INCLUDE</p><ul className="cine-membership-list">{continuum.items.map((item, index) => <li key={item}><span>0{index + 1}</span>{item}</li>)}</ul><p>{continuum.welcome}</p><p className="cine-footnote">{continuum.note}</p><Action interest="CONTINUUM">{continuum.cta}</Action></div>
+          <div className="cine-copy-panel" data-cine-reveal><p className="cine-label">IT CAN INCLUDE</p><ul className="cine-membership-list">{continuum.items.map((item, index) => <li key={item}><span><TabularDigits value={String(index + 1).padStart(2, "0")} /></span>{item}</li>)}</ul><p>{continuum.welcome}</p><p className="cine-footnote">{continuum.note}</p><Action interest="CONTINUUM">{continuum.cta}</Action></div>
           <div className="cine-gallery" data-cine-reveal>{continuum.images.map((src, index) => <figure key={src}><img src={src} alt={`THOP visual ${index + 1}`} loading="lazy" /></figure>)}</div>
         </Chapter>
 
@@ -280,12 +281,12 @@ function Home() {
 
         <section id="centre" className="cine-section cine-centre" data-cinema-model="none"><div className="cine-section-top"><span>{centre.label}</span></div><div className="cine-centre-grid"><div data-cine-reveal><p className="cine-label">{centre.label}</p><h2>{centre.title}</h2><p className="cine-lead">{centre.body}</p><Link href={centre.href} className="cine-button">{centre.cta}<Arrow /></Link></div><figure data-cine-reveal><img src={centre.image} alt="BIOVITY Centre visual" loading="lazy" /><figcaption>{centre.eyebrow}</figcaption></figure></div></section>
 
-        <section id="questions" className="cine-section cine-light cine-faq" data-cinema-model="none"><SectionTransition /><div className="cine-section-top"><span>Questions people ask</span></div><div className="cine-faq-grid"><h2 data-cine-reveal>Questions<br />people ask.</h2><div>{homepageFaqs.map((faq, index) => <details key={faq.q} data-cine-reveal><summary><span>0{index + 1}</span>{faq.q}<i>+</i></summary><p>{faq.a}</p></details>)}</div></div></section>
+        <section id="questions" className="cine-section cine-light cine-faq" data-cinema-model="none"><SectionTransition /><div className="cine-section-top"><span>Questions people ask</span></div><div className="cine-faq-grid"><h2 data-cine-reveal>Questions<br />people ask.</h2><div>{homepageFaqs.map((faq, index) => <details key={faq.q} data-cine-reveal><summary><span><TabularDigits value={String(index + 1).padStart(2, "0")} /></span>{faq.q}<i>+</i></summary><p>{faq.a}</p></details>)}</div></div></section>
 
         <footer id="contact" className="cine-section cine-footer" data-cinema-model="dna"><div className="cine-section-top"><span>{contact.eyebrow}</span></div><div className="cine-footer-opening" data-cine-reveal><h2>{contact.title}</h2><p className="cine-lead">{contact.body}</p><div className="cine-actions"><Action>{contact.primary}</Action><a href={brand.whatsapp} target="_blank" rel="noreferrer" className="cine-text-link">{contact.secondary}<Arrow /></a></div></div><FooterColumns /><div className="cine-footer-word" aria-hidden="true">BIOVITY</div></footer>
       </main>
 
-      <aside className="cine-chapter-rail" aria-label="Jump to a THOP step">{stages.map((id, index) => <a key={id} href={`#${id}`} className={chapter === id ? "active" : ""} aria-current={chapter === id ? "step" : undefined}><span>0{index + 1}</span><i /><span>{id}</span></a>)}</aside>
+      <aside className="cine-chapter-rail" aria-label="Jump to a THOP step">{stages.map((id, index) => <a key={id} href={`#${id}`} className={chapter === id ? "active" : ""} aria-current={chapter === id ? "step" : undefined}><span><TabularDigits value={String(index + 1).padStart(2, "0")} /></span><i /><span>{id}</span></a>)}</aside>
       <a className="cine-concierge" href={brand.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp BIOVITY"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11.5a9 9 0 0 1-13 8L3 21l1.5-5A9 9 0 1 1 21 11.5Z" stroke="currentColor" strokeWidth="1.4" /><path d="M8 7c0 5 3 8 8 9" stroke="currentColor" strokeWidth="1.4" /></svg><span>WhatsApp BIOVITY</span></a>
     </div>
   );

@@ -4,6 +4,7 @@ import { gsap } from "@/lib/gsap";
 import { scene } from "@/lib/scene";
 import { getLenis } from "@/lib/lenis";
 import { brand, stepLinks } from "@/lib/content";
+import { TabularDigits } from "./TabularDigits";
 
 const WORD = brand.name.split("");
 
@@ -15,14 +16,15 @@ export default function Loader() {
     if (!root) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const letters = root.querySelectorAll<HTMLElement>(".ld-letter i");
-    const num = root.querySelector<HTMLElement>(".ld-num");
+    const digits = root.querySelectorAll<HTMLElement>(".ld-num .type-digit");
     const bar = root.querySelector<HTMLElement>(".ld-bar i");
     const steps = root.querySelectorAll<HTMLElement>(".ld-step");
     const state = { p: 0 };
 
     const paint = (p: number) => {
       const n = Math.min(100, Math.round(p));
-      if (num) num.textContent = String(n).padStart(3, "0");
+      const count = String(n).padStart(3, "0");
+      digits.forEach((digit, index) => { digit.textContent = count[index]; });
       if (bar) bar.style.transform = `scaleX(${n / 100})`;
       const on = Math.min(steps.length, Math.ceil((n / 100) * steps.length));
       steps.forEach((step, i) => step.classList.toggle("on", i < on));
@@ -112,7 +114,7 @@ export default function Loader() {
       </ol>
       <div className="ld-foot">
         <span className="ld-protocol">{brand.protocolLong}</span>
-        <span className="ld-num">000</span>
+        <span className="ld-num"><TabularDigits value="000" /></span>
       </div>
       <div className="ld-bar" aria-hidden><i /></div>
     </div>

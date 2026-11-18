@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { hallmarks } from "@/lib/pages";
+import { TabularDigits } from "./TabularDigits";
 
 export default function Hallmarks() {
   const [open, setOpen] = useState(0);
@@ -17,12 +18,12 @@ export default function Hallmarks() {
             aria-pressed={i === open}
             onClick={() => setOpen(i)}
           >
-            {String(i + 1).padStart(2, "0")}
+            <TabularDigits value={String(i + 1).padStart(2, "0")} />
           </button>
         ))}
       </div>
       <article>
-        <p className="home-kicker">{String(open + 1).padStart(2, "0")} / 12</p>
+        <p className="home-kicker"><TabularDigits value={String(open + 1).padStart(2, "0")} /> / <TabularDigits value="12" /></p>
         <h3>{title}</h3>
         <p>{text}</p>
       </article>

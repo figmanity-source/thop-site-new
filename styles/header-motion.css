@@ -2,12 +2,12 @@
 .cinematic-home:not(.past-intro) .cine-header {
   min-height:64px; padding-block:10px;
 }
-.cinematic-home:not(.past-intro) .cine-header nav.open {
-  top:64px; min-height:calc(100svh - 64px);
+@media (max-width:1279px) {
+  .cinematic-home:not(.past-intro) .cine-header nav { top:64px; min-height:calc(100svh - 64px); }
 }
 @media (max-width:767px) {
   .cinematic-home:not(.past-intro) .cine-header { min-height:60px; padding-block:9px; }
-  .cinematic-home:not(.past-intro) .cine-header nav.open { top:60px; min-height:calc(100svh - 60px); }
+  .cinematic-home:not(.past-intro) .cine-header nav { top:60px; min-height:calc(100svh - 60px); }
   .cinematic-home .cine-header nav:not(.open) { display:none; }
   .cinematic-home .cine-header-actions { flex:none; }
 }

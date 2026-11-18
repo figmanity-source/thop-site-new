@@ -168,9 +168,9 @@
   .past-intro .cine-header-actions { margin-left: auto; gap: 12px; }
   .past-intro .cine-header .cine-button { padding: 12px 14px; min-height: 40px; font-size: var(--type-button); gap: 8px; font-family: var(--font-sans); font-weight: 500; letter-spacing: var(--ls-button); text-transform: uppercase; }
   .past-intro .cine-login { display: none; }
-  .past-intro .cine-header nav { display: none; }
-  .past-intro .cine-header nav.open { display: flex; flex-direction: column; position: absolute; inset: auto 0 78px; background: #f2f1ee; border: 1px solid #16151425; border-radius: 24px; padding: 20px; gap: 4px; min-height: 0; max-height: calc(100svh - 180px); overflow-y: auto; }
-  .past-intro .cine-header nav.open a { display: block; padding: 14px 12px; color: #161514; }
+  .past-intro .cine-header nav { display: none; flex-direction: column; position: absolute; inset: auto 0 78px; background: #f2f1ee; border: 1px solid #16151425; border-radius: 24px; padding: 20px; gap: 4px; min-height: 0; max-height: calc(100svh - 180px); overflow-y: auto; }
+  .past-intro .cine-header nav.open { display: flex; }
+  .past-intro .cine-header nav a { display: block; padding: 14px 12px; color: #161514; }
   .past-intro .cine-menu { display: flex; flex: none; }
   .past-intro .cine-concierge { bottom: 94px; }
   .cine-healthspan .cine-health-grid { grid-template-columns: 1fr; min-height: 0; gap: 32px; }
@@ -218,8 +218,8 @@
 }
 /* The matched live-site navigation has six links; use the menu at tablet widths. */
 @media (min-width:768px) and (max-width:1023px) {
-  .past-intro .cine-header nav { display: none; }
+  .past-intro .cine-header nav { display: none; position: absolute; inset: auto 0 80px; flex-direction: column; padding: 20px; gap: 4px; min-height: 0; max-height: calc(100svh - 180px); overflow-y: auto; background: #f2f1ee; border: 1px solid #16151425; border-radius: 24px; }
   .past-intro .cine-menu { display: flex; }
-  .past-intro .cine-header nav.open { display: flex; position: absolute; inset: auto 0 80px; flex-direction: column; padding: 20px; gap: 4px; min-height: 0; max-height: calc(100svh - 180px); overflow-y: auto; background: #f2f1ee; border: 1px solid #16151425; border-radius: 24px; }
-  .past-intro .cine-header nav.open a { color: #161514; padding: 14px 12px; }
+  .past-intro .cine-header nav.open { display: flex; }
+  .past-intro .cine-header nav a { color: #161514; padding: 14px 12px; }
 }
