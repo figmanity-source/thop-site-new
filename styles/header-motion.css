@@ -12,7 +12,7 @@ body:has(.cinematic-home #loader:not([style*="display: none"])) #header.inner-na
 #header.inner-nav .enquire { display:flex; align-items:center; gap:18px; border:1px solid #161514; border-radius:50px; background:#161514; color:#f2f1ee; padding:13px 20px; min-height:44px; font-size: var(--type-button); letter-spacing: var(--ls-button); line-height:1.4; white-space:nowrap; font-family: var(--font-sans); font-weight: 500; text-transform: uppercase; }
 #header.inner-nav .sign-in { position:relative; isolation:isolate; display:flex; align-items:center; justify-content:center; width:28px; height:36px; color:#161514; }
 #header.inner-nav .sign-in::before { content:""; position:absolute; width:28px; height:28px; border-radius:50%; z-index:-1; transition:background-color .22s ease-out; }
-#header.inner-nav .nav-label-back { display:none; }
+#header.inner-nav :is(.nav-pill-fill,.nav-pill-label-hover) { display:none; }
 #header.inner-nav .menu-toggle { display:none; color:#161514; }
 #header.inner-nav :is(.sign-in,.menu-toggle) { border-radius:50%; }
 #header.inner-nav :is(nav a,.enquire,.sign-in,.menu-toggle) {
@@ -30,17 +30,33 @@ body:has(.cinematic-home #loader:not([style*="display: none"])) #header.inner-na
 @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
   #header.inner-nav :is(.enquire,.menu-toggle):hover { transform:translateY(-1px); }
   #header.inner-nav .enquire:hover svg { transform:translate(2px,-2px); }
-  #header.inner-nav nav a { perspective:10em; }
-  #header.inner-nav .nav-label {
-    --face-depth:.7em;
-    display:inline-grid;
-    line-height:1.4;
-    transform-style:preserve-3d;
-    transition:transform .38s cubic-bezier(.2,.75,.25,1);
+}
+/* React Bits Pill Nav fill and label roll, adapted to the existing Next.js links. */
+@media (prefers-reduced-motion:no-preference) {
+  #header.inner-nav nav a { position:relative; isolation:isolate; overflow:hidden; }
+  #header.inner-nav nav a:focus-visible { background-color:transparent; }
+  #header.inner-nav .nav-pill-fill {
+    display:block; position:absolute; z-index:-1; top:100%; left:50%;
+    width:calc(100% + 64px); aspect-ratio:1; border-radius:50%;
+    background:#161514; translate:-50% -50%; scale:0;
+    transition:scale .45s cubic-bezier(.22,1,.36,1);
   }
-  #header.inner-nav .nav-label > span { grid-area:1 / 1; backface-visibility:hidden; transform:translateZ(var(--face-depth)); }
-  #header.inner-nav .nav-label > .nav-label-back { display:block; transform:rotateX(-90deg) translateZ(var(--face-depth)); }
-  #header.inner-nav nav a:hover .nav-label { transform:rotateX(90deg); }
+  #header.inner-nav :is(.nav-pill-label,.nav-pill-label-hover) {
+    display:block; transition:transform .36s cubic-bezier(.22,1,.36,1);
+  }
+  #header.inner-nav .nav-pill-label-hover {
+    position:absolute; inset:0; display:grid; place-items:center; color:#f2f1ee;
+    transform:translateY(100%);
+  }
+  #header.inner-nav nav a:focus-visible .nav-pill-fill { scale:1; }
+  #header.inner-nav nav a:focus-visible .nav-pill-label { transform:translateY(-3em); }
+  #header.inner-nav nav a:focus-visible .nav-pill-label-hover { transform:translateY(0); }
+  @media (hover:hover) and (pointer:fine) {
+    #header.inner-nav nav a:hover { background-color:transparent; }
+    #header.inner-nav nav a:hover .nav-pill-fill { scale:1; }
+    #header.inner-nav nav a:hover .nav-pill-label { transform:translateY(-3em); }
+    #header.inner-nav nav a:hover .nav-pill-label-hover { transform:translateY(0); }
+  }
 }
 @media (max-width:1023px) {
   #header.inner-nav nav { position:absolute; inset:auto 0 80px; display:none; flex-direction:column; padding:20px; border:1px solid #16151425; background:#f2f1ee; border-radius:24px; min-height:0; max-height:calc(100svh - 180px); overflow-y:auto; }

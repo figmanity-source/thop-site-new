@@ -93,10 +93,11 @@ export default function Header({ variant = "default" }: { variant?: "default" | 
         {links.map((item) => (
           <Link key={item.href} href={item.href === "/" && pathname === "/" && variant === "inner" ? "/#five-steps" : item.href} onClick={close} aria-current={current(item.href) ? "page" : undefined}>
             {variant === "inner" ? (
-              <span className="nav-label">
-                <span>{item.label}</span>
-                <span className="nav-label-back" aria-hidden="true">{item.label}</span>
-              </span>
+              <>
+                <span className="nav-pill-fill" aria-hidden="true" />
+                <span className="nav-pill-label">{item.label}</span>
+                <span className="nav-pill-label-hover" aria-hidden="true">{item.label}</span>
+              </>
             ) : item.label}
           </Link>
         ))}
