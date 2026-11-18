@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { setLenis } from "@/lib/lenis";
@@ -15,6 +16,7 @@ import { TabularDigits } from "../TabularDigits";
 import Loader from "../Loader";
 import SectionTransition from "./SectionTransition";
 import { buildPulzMotion } from "./PulzMotion";
+import ReflectiveCard from "./reflective-card/ReflectiveCard";
 import "../../styles/home.css";
 import "../../styles/reference-theme.css";
 import "../../styles/product-sections.css";
@@ -26,6 +28,11 @@ const Scene = dynamic(() => import("../three/Scene"), { ssr: false });
 const InlineHelix = dynamic(() => import("../three/InnerStage").then((module) => module.InlineHelix), { ssr: false });
 const heroFilmCaptions = heroSlides.slice(1).map(slide => ({ name: slide.center, line: slide.left }));
 const homepageFaqs = faqs;
+const demoTeamProfiles = [
+  { name: "Dr. Aisha Mehta", role: "Clinical Lead · MBBS, MD", registration: "DEMO-001" },
+  { name: "Rohan Shah", role: "Laboratory Scientist · MSc, Biochemistry", registration: "DEMO-002" },
+  { name: "Neha Rao", role: "Patient Care Coordinator · BSc, Nursing", registration: "DEMO-003" },
+];
 const stages = ["discover", "bioblueprint", "dox", "cellution", "continuum"] as const;
 
 function Arrow({ down = false }: { down?: boolean }) {
@@ -253,8 +260,52 @@ export default function CinematicHome() {
 
 
         <section id="founder" className="cine-section cine-light cine-founder" data-cinema-model="none"><SectionTransition />
-          <div className="cine-section-top"><span>The founder</span></div><div className="cine-founder-grid"><div className="cine-founder-art" aria-hidden="true"><i /></div><div data-cine-reveal><p className="cine-label">THE FOUNDER</p><h2>{founder.headline}</h2><p className="cine-founder-name">{founder.name}</p><p className="cine-label">{founder.title}</p><p>{founder.body}</p><Link className="cine-text-link" href="/founder">MEET THE FOUNDER<Arrow /></Link></div></div>
-          <div className="cine-team" id="team" data-cine-reveal><p className="cine-label">OUR TEAM</p><h3>{team.headline}</h3><p>{team.body}</p></div>
+          <div className="cine-section-top"><span>The founder</span></div>
+          <div className="cine-founder-grid">
+            <Image
+              className="cine-founder-image"
+              src="/images/founder-microscope.webp"
+              alt="Microscope lens above a liquid sample"
+              width={1448}
+              height={1086}
+            />
+            <div data-cine-reveal>
+              <p className="cine-label">THE FOUNDER</p>
+              <h2>{founder.headline}</h2>
+              <p className="cine-founder-name">{founder.name}</p>
+              <p className="cine-label">{founder.title}</p>
+              <p>{founder.body}</p>
+              <Link className="cine-text-link" href="/founder">MEET THE FOUNDER<Arrow /></Link>
+            </div>
+          </div>
+          <div className="cine-team" id="team" data-cine-reveal>
+            <p className="cine-label">OUR TEAM</p>
+            <h3>{team.headline}</h3>
+            <p>{team.body}</p>
+            <ul className="cine-team-cards">
+              {demoTeamProfiles.map(({ name, role, registration }) => (
+                <li key={registration}>
+                  <ReflectiveCard
+                    className="cine-team-reflector"
+                    theme="light"
+                    name={name}
+                    role={role}
+                    badge=""
+                    status=""
+                    idLabel="Demo reg. no."
+                    idValue={registration}
+                    showIdIcon={false}
+                    width="100%"
+                    height={420}
+                    radius={22}
+                    webcam={false}
+                    intro={false}
+                    tiltStrength={5}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         <section id="centre" className="cine-section cine-centre" data-cinema-model="none"><div className="cine-section-top"><span>{centre.label}</span></div><div className="cine-centre-grid"><div data-cine-reveal><p className="cine-label">{centre.label}</p><h2>{centre.title}</h2><p className="cine-lead">{centre.body}</p><Link href={centre.href} className="cine-button">{centre.cta}<Arrow /></Link></div><figure data-cine-reveal><img src={centre.image} alt="BIOVITY Centre visual" loading="lazy" /><figcaption>{centre.eyebrow}</figcaption></figure></div></section>
