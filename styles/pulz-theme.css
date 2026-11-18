@@ -217,7 +217,7 @@
   .past-intro .cine-header nav.open { display: flex; }
   .past-intro .cine-header nav a { display: block; padding: 14px 12px; color: #161514; }
   .past-intro .cine-menu { display: flex; flex: none; }
-  .cinematic-home .cine-concierge { bottom: 94px; }
+  .cinematic-home .cine-concierge { bottom: calc(94px + env(safe-area-inset-bottom)); }
   .cine-healthspan .cine-health-grid { grid-template-columns: 1fr; min-height: 0; gap: 32px; }
   .cine-healthspan .cine-health-grid h2 { font-size: var(--type-h2); font-weight: 300; line-height: var(--lh-h2); }
   .cine-healthspan .cine-life-chart { margin-top: 24px; }
@@ -225,6 +225,10 @@
   .cine-healthspan .cine-why h3 { margin: 20px 0; }
   .cine-healthspan .cine-why p { margin-top: 20px; }
   .cine-healthspan .cine-why-network { top: 24px; right: 0; width: 100%; height: 210px; }
+  .cine-main > :is(.cine-protocol,.cine-dashboard) .cine-section-top { justify-content: center; }
+  .cine-main > .cine-protocol .cine-section-top { margin-bottom: 28px; }
+  .cine-main > .cine-protocol .cine-section-top > span { text-align: center; text-wrap: balance; }
+  .cine-protocol .cine-narrow h2 { text-wrap: balance; }
   .cine-protocol .cine-stage-list { margin-top: 48px; }
   .cine-protocol .cine-stage-list > a,.cine-protocol .cine-stage-list > a:last-child { grid-template-columns: 28px 1fr 18px; gap: 14px; padding-block: 28px; }
   .cine-protocol .cine-stage-title { font-size: var(--type-h3); overflow-wrap: anywhere; font-weight: 500; }

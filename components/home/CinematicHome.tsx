@@ -215,7 +215,7 @@ export default function CinematicHome() {
 
         <section id="five-steps" className="cine-section cine-light cine-protocol" data-cinema-model="none">
           <div className="cine-section-top"><span>THE HUMAN OPTIMISATION PROTOCOL</span></div>
-          <div className="cine-narrow" data-cine-reveal><p className="cine-label">THE HUMAN OPTIMISATION PROTOCOL</p><h2><BrandType text={protocol.title} /></h2><p className="cine-lead">{protocol.body}</p></div>
+          <div className="cine-narrow" data-cine-reveal><h2><BrandType text={protocol.title} /></h2><p className="cine-lead">{protocol.body}</p></div>
           <div className="cine-stage-list">{protocol.steps.map(([number, name, line], index) => <a key={name} href={`#${stages[index]}`} data-cine-reveal><span className={`cine-stage-symbol symbol-${index}`} aria-hidden="true"><i /><i /><i /></span><span className="cine-stage-index"><TabularDigits value={number} /></span><span className="cine-stage-title">{name}</span><span className="cine-stage-description">{line}</span><Arrow /></a>)}</div>
         </section>
 

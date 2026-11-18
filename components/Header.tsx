@@ -101,6 +101,11 @@ export default function Header({ variant = "default" }: { variant?: "default" | 
             ) : item.label}
           </Link>
         ))}
+        {variant === "inner" && (
+          <Link className="mobile-sign-in" href="/member-login" onClick={close} aria-current={pathname === "/member-login" ? "page" : undefined}>
+            Member sign in
+          </Link>
+        )}
       </nav>
       <div className="header-actions">
         <Link className="sign-in" href="/member-login" aria-label="Sign in" onClick={close}>
