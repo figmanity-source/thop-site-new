@@ -144,7 +144,24 @@
   list-style: none;
 }
 .cine-team-cards > li { flex: 0 1 280px; min-width: 0; }
+.cine-team-reflector { --team-portrait-height: 58%; }
 .cine-team-reflector :is(.reflective-card__body, .reflective-card__tile) { box-shadow: none; }
+.cine-team-portrait {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: var(--team-portrait-height);
+  object-fit: cover;
+  object-position: center 25%;
+}
+.cine-team-reflector .reflective-card__content {
+  position: absolute;
+  inset: var(--team-portrait-height) 0 0;
+  height: auto;
+  padding-top: 12px;
+}
+.cine-team-reflector .reflective-card__identity { margin-top: 0; }
+.cine-team-reflector .reflective-card__footer { margin-top: auto; }
 .cine-team-reflector .reflective-card__name { margin: 0; font-size: 24px; text-transform: none; }
 .cine-team-reflector .reflective-card__role { font-size: 14px; color: var(--rc-muted); }
 @media (max-width: 767px) {

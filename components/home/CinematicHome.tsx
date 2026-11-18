@@ -29,9 +29,9 @@ const InlineHelix = dynamic(() => import("../three/InnerStage").then((module) =>
 const heroFilmCaptions = heroSlides.slice(1).map(slide => ({ name: slide.center, line: slide.left }));
 const homepageFaqs = faqs;
 const demoTeamProfiles = [
-  { name: "Dr. Aisha Mehta", role: "Clinical Lead · MBBS, MD", registration: "DEMO-001" },
-  { name: "Rohan Shah", role: "Laboratory Scientist · MSc, Biochemistry", registration: "DEMO-002" },
-  { name: "Neha Rao", role: "Patient Care Coordinator · BSc, Nursing", registration: "DEMO-003" },
+  { name: "Dr. Aisha Mehta", role: "Clinical Lead · MBBS, MD", registration: "DEMO-001", portrait: "team-clinical.webp" },
+  { name: "Rohan Shah", role: "Laboratory Scientist · MSc, Biochemistry", registration: "DEMO-002", portrait: "team-lab.webp" },
+  { name: "Neha Rao", role: "Patient Care Coordinator · BSc, Nursing", registration: "DEMO-003", portrait: "team-care.webp" },
 ];
 const stages = ["discover", "bioblueprint", "dox", "cellution", "continuum"] as const;
 
@@ -283,7 +283,7 @@ export default function CinematicHome() {
             <h3>{team.headline}</h3>
             <p>{team.body}</p>
             <ul className="cine-team-cards">
-              {demoTeamProfiles.map(({ name, role, registration }) => (
+              {demoTeamProfiles.map(({ name, role, registration, portrait }) => (
                 <li key={registration}>
                   <ReflectiveCard
                     className="cine-team-reflector"
@@ -294,6 +294,15 @@ export default function CinematicHome() {
                     status=""
                     idLabel="Demo reg. no."
                     idValue={registration}
+                    media={
+                      <Image
+                        className="cine-team-portrait"
+                        src={`/images/${portrait}`}
+                        alt=""
+                        width={720}
+                        height={960}
+                      />
+                    }
                     showIdIcon={false}
                     width="100%"
                     height={420}

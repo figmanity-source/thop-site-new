@@ -16,6 +16,7 @@ export interface ReflectiveCardProps {
   idValue?: string;
   showIdIcon?: boolean;
   children?: ReactNode;
+  media?: ReactNode;
   theme?: 'dark' | 'light';
   videoSrc?: string;
   webcam?: boolean;
@@ -670,6 +671,7 @@ const ReflectiveCard = ({
   idValue = '8901 2345 6789',
   showIdIcon = true,
   children,
+  media,
   theme = 'dark',
   videoSrc,
   webcam = false,
@@ -1118,6 +1120,7 @@ const ReflectiveCard = ({
     <div ref={rootRef} className={`reflective-card ${className}`.trim()} style={{ ...cardStyle, ...style }}>
       <div ref={bodyRef} className="reflective-card__body">
         <canvas ref={canvasRef} className="reflective-card__canvas" aria-hidden="true" />
+        {media}
         <div className="reflective-card__content">
           {children ?? (
             <>
