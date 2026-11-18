@@ -52,7 +52,7 @@
   font-size: clamp(40px, 11vw, 235px); font-weight: 500;
   line-height: .9; letter-spacing: -.075em; color: #0b0b0b; text-align: left; pointer-events: none;
 }
-.cine-hero-helix { min-width: 0; height: 84%; overflow: hidden; }
+.cine-hero-helix { min-width: 0; height: 100%; overflow: hidden; translate: -5% 0; rotate: 9deg; }
 .cine-hero > .cine-hero-coordinate {
   position: absolute; z-index: 2; top: 162px; left: var(--cine-gutter); right: var(--cine-gutter);
   display: flex; justify-content: space-between; font: 500 9px/1.8 var(--font-sans); letter-spacing: .16em;
@@ -155,7 +155,7 @@
   .cine-hero { --hero-stage-max: 680px; --hero-footer-space: 140px; min-height: 1160px; }
   .cine-hero > .cine-hero-coordinate { top: 116px; font-size: 7px; letter-spacing: .1em; }
   .cine-hero-coordinate > span:last-child { max-width: 120px; }
-  .cine-hero-helix { height: min(64%, 44vw); }
+  .cine-hero-helix { height: min(72%, 60vw); }
   .cine-hero > .cine-hero-copy { width: 100%; }
   .cine-hero-copy::before {
     inset-inline-end: calc(-1 * var(--cine-gutter));
