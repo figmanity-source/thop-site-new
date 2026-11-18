@@ -74,10 +74,10 @@
 .cine-orbit > span { position: absolute; bottom: 7%; right: 12%; font-size: 8px; letter-spacing: .25em; color: #c8c8c866; transform: rotate(-30deg); }
 .cine-specimen-label { position: absolute !important; right: 9%; bottom: 160px; font-size: 9px; letter-spacing: .2em; display: flex; flex-direction: column; gap: 10px; color: var(--cine-muted); padding-left: 18px; border-left: 1px solid #e5e5e34d; }
 .cine-specimen-label i { width: 100px; height: 1px; background: linear-gradient(90deg, var(--cine-accent), transparent); }
-.cine-hero-footer { position: absolute !important; left: var(--cine-gutter); right: var(--cine-gutter); bottom: 32px; padding-top: 26px; border-top: 1px solid var(--cine-line); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.cine-hero-footer { position: absolute !important; left: var(--cine-gutter); right: var(--cine-gutter); bottom: 32px; padding-top: 26px; border-top: 1px solid var(--cine-line); display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px; }
 .cine-hero-footer > span, .cine-hero-footer a, .cine-hero-footer button { font-size: var(--type-label); letter-spacing: var(--ls-nav); line-height: 1.8; color: var(--cine-muted); text-transform: uppercase; font-weight: 400; }
-.cine-hero-footer a { display: flex; align-items: center; gap: 14px; }
-.cine-scroll-line { height: 24px; width: 1px; display: block; background: linear-gradient(var(--cine-accent), transparent); }
+.cine-hero-footer a { grid-column: 2; display: grid; place-items: center; }
+.cine-hero-footer button { grid-column: 3; justify-self: end; }
 .cine-light { background: var(--cine-paper); color: #151515; --cine-muted: #5b5b5b; --cine-line: #22222226; --cine-accent: #151515; }
 .cine-light .cine-button { background: #151515; border-color: #151515; color: #f2f2ef; }
 .cine-light .cine-button:hover { background: #333333; }
@@ -294,10 +294,9 @@
   .cine-text-link { font-size: var(--type-button); font-family: var(--font-sans); font-weight: 500; letter-spacing: var(--ls-button); text-transform: uppercase; }
   .cine-orbit { width: 85%; top: auto; bottom: 110px; right: -4%; max-height: 360px; }
   .cine-specimen-label { bottom: 144px; left: 24px; right: auto; font-size: 8px; max-width: 180px; }
-  .cine-hero-footer { flex-wrap: wrap; gap: 18px; bottom: 24px; }
-  .cine-hero-footer > span { width: 100%; font-size: var(--type-label); font-weight: 400; letter-spacing: var(--ls-nav); text-transform: uppercase; }
+  .cine-hero-footer { gap: 18px; bottom: 24px; }
+  .cine-hero-footer > span { grid-column: 1 / -1; font-size: var(--type-label); font-weight: 400; letter-spacing: var(--ls-nav); text-transform: uppercase; }
   .cine-hero-footer a, .cine-hero-footer button { font-size: 7px; }
-  .cine-hero-footer button { margin-left: auto; }
   .cine-health-grid, .cine-founder-grid, .cine-faq-grid, .cine-centre-grid, .cine-process-end { grid-template-columns: 1fr; gap: 36px; }
   .cine-health-grid h2 { font-size: var(--type-h2); font-weight: 300; line-height: var(--lh-h2); }
   .cine-why { grid-template-columns: 1fr; gap: 24px; margin-top: 56px; padding-top: 40px; }

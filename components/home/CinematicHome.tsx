@@ -197,7 +197,7 @@ export default function CinematicHome() {
           </div>
           <div className="cine-orbit" aria-hidden="true"><div /><div /><i /></div>
           <div className="cine-specimen-label" aria-hidden="true"><i /></div>
-          <div className="cine-hero-footer"><span>{brand.protocolLong}</span><a href="#healthspan" aria-label="Scroll to the healthspan section"><span className="cine-scroll-line" /><Arrow down /></a><button onClick={() => setPaused(!paused)} aria-pressed={paused} aria-label={paused ? "Resume ambient motion" : "Pause ambient motion"}><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">{paused ? <path d="m4 2 9 6-9 6Z" fill="currentColor" /> : <path d="M5 2v12M11 2v12" stroke="currentColor" strokeWidth="2" />}</svg></button></div>
+          <div className="cine-hero-footer"><span>{brand.protocolLong}</span><a href="#healthspan" aria-label="Scroll to the healthspan section"><Arrow down /></a><button onClick={() => setPaused(!paused)} aria-pressed={paused} aria-label={paused ? "Resume ambient motion" : "Pause ambient motion"}><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">{paused ? <path d="m4 2 9 6-9 6Z" fill="currentColor" /> : <path d="M5 2v12M11 2v12" stroke="currentColor" strokeWidth="2" />}</svg></button></div>
         </section>
 
         <div className="cine-model-index" aria-label="The five THOP steps">
