@@ -4,6 +4,7 @@ import EnquireButton from "./EnquireButton";
 import HeroParticles from "./HeroParticles";
 import { BrandType } from "./BrandType";
 import type { Interest } from "@/lib/content";
+import SectionTransition from "./home/SectionTransition";
 
 export function SheetHero({
   word,
@@ -53,11 +54,16 @@ export function SheetBand({
 }) {
   return (
     <section id={id} data-object={object} className={night ? "home-block sheet-band surface-night" : "home-block sheet-band"}>
+      {night && <SectionTransition />}
       <div className="home-inner">
+        {(kicker || title) && <div className="sheet-band-heading">
         {kicker ? <p className="home-kicker" data-reveal="">{kicker}</p> : null}
-        {title ? <h2 data-reveal=""><BrandType text={title} /></h2> : null}
+        {title ? <h2><BrandType text={title} /></h2> : null}
+        </div>}
+        <div className="sheet-band-content">
         {lead ? <p className="home-lead" data-reveal="">{lead}</p> : null}
         {children ? <div data-reveal="">{children}</div> : null}
+        </div>
       </div>
     </section>
   );

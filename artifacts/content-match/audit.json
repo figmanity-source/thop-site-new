@@ -1,0 +1,428 @@
+{
+  "source": "https://thop-site.vercel.app/",
+  "checkedAt": "2026-11-17T18:19:32.540Z",
+  "entriesChecked": 84,
+  "unmatched": [],
+  "entries": [
+    {
+      "path": "heroSlides.0.tag",
+      "text": "BIOVITY · BIOLOGICAL LONGEVITY CENTRE · MUMBAI",
+      "matched": true
+    },
+    {
+      "path": "heroSlides.0.left",
+      "text": "Your biology is your greatest asset.",
+      "matched": true
+    },
+    {
+      "path": "heroSlides.0.body",
+      "text": "THOP is our five-step journey to help you live longer, and live well. First, we understand your body. Then we build a plan around it. And we stay with you as you change.",
+      "matched": true
+    },
+    {
+      "path": "heroSlides.1.body",
+      "text": "Your journey starts with a conversation. You meet our clinical team in a private room. We listen to your story, your health history and your goals. We look at any reports you already have. Then, together, we agree your next step.",
+      "matched": true
+    },
+    {
+      "path": "heroSlides.2.right.1",
+      "text": "Before we change anything, we measure.",
+      "matched": true
+    },
+    {
+      "path": "heroSlides.2.body",
+      "text": "Before we change anything, we measure. Three simple tests show us how your body is really doing today.",
+      "matched": true
+    },
+    {
+      "path": "heroSlides.3.body",
+      "text": "Think of your stem cells as seeds. Seeds grow best in healthy soil. DOX gets that soil ready. It has two parts, and both are built from your BIOBLUEPRINT results.",
+      "matched": true
+    },
+    {
+      "path": "heroSlides.4.body",
+      "text": "CELLUTION is our regenerative medicine programme. It uses only your own body, in two parts, in one visit.",
+      "matched": true
+    },
+    {
+      "path": "heroSlides.5.body",
+      "text": "Your body keeps changing. So your care shouldn’t stop after one visit. CONTINUUM is a year of follow-up, as a private membership.",
+      "matched": true
+    },
+    {
+      "path": "healthspan.title.1",
+      "text": "Healthspan is how long you live well.",
+      "matched": true
+    },
+    {
+      "path": "healthspan.body",
+      "text": "Many people live long lives. But too many spend their later years managing illness instead of enjoying life. The gap between the two is what longevity medicine is about. Find out what’s happening inside your body early. Act before small changes become big problems.",
+      "matched": true
+    },
+    {
+      "path": "why.title",
+      "text": "Your body works as one. Your care should too.",
+      "matched": true
+    },
+    {
+      "path": "why.body",
+      "text": "Most healthcare today is split up. One doctor for your heart. Another for your hormones. A pile of reports that never quite connect. At BIOVITY, we look at the whole picture. We bring your tests, your history and your goals together. Then we build one clear plan, with qualified doctors.",
+      "matched": true
+    },
+    {
+      "path": "why.note",
+      "text": "Not another treatment menu. One connected journey.",
+      "matched": true
+    },
+    {
+      "path": "protocol.title",
+      "text": "THOP: The Human Optimisation Protocol.",
+      "matched": true
+    },
+    {
+      "path": "protocol.body",
+      "text": "THOP is how we work with every person. There are five steps. Each one builds on the one before. You always know where you are, and what comes next.",
+      "matched": true
+    },
+    {
+      "path": "protocol.steps.1.2",
+      "text": "We map your biology with three simple tests.",
+      "matched": true
+    },
+    {
+      "path": "protocol.steps.2.2",
+      "text": "We prepare your body with food and liver support.",
+      "matched": true
+    },
+    {
+      "path": "protocol.steps.3.2",
+      "text": "Your own stem cells, working for you, when it’s right for you.",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.0.text",
+      "text": "Your journey starts with a conversation. You meet our clinical team in a private room. We listen to your story, your health history and your goals. We look at any reports you already have. Then, together, we agree your next step.",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.0.leaves.0",
+      "text": "A clear picture of where you are today",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.0.leaves.1",
+      "text": "A recommendation for your BIOBLUEPRINT tests",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.1.line",
+      "text": "We map your biology with three simple tests.",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.1.text",
+      "text": "Before we change anything, we measure. Three simple tests show us how your body is really doing today.",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.2.line",
+      "text": "We prepare your body with food and liver support.",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.2.text",
+      "text": "Think of your stem cells as seeds. Seeds grow best in healthy soil. DOX gets that soil ready. It has two parts, and both are built from your BIOBLUEPRINT results. DOX is not a replacement for medical detox, treatment of poisoning, or treatment for a medical condition.",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.3.line",
+      "text": "Your own stem cells, working for you, when it’s right for you.",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.3.text",
+      "text": "CELLUTION is our regenerative medicine programme. It uses only your own body, in two parts, in one visit. Every patient is assessed, gives informed consent and is followed up. We never promise a cure. And CELLUTION isn’t right for everyone.",
+      "matched": true
+    },
+    {
+      "path": "journey.steps.4.text",
+      "text": "Your body keeps changing. So your care shouldn’t stop after one visit. CONTINUUM is a year of follow-up, as a private membership. What’s included depends on your membership level.",
+      "matched": true
+    },
+    {
+      "path": "blueprint.intro",
+      "text": "Before we change anything, we measure. Three simple tests show us how your body is really doing today.",
+      "matched": true
+    },
+    {
+      "path": "blueprint.smallPrint",
+      "text": "The fingertip scan uses patent-pending Spectral Rai Technology, taking more than 700,000 light measurements in one reading.",
+      "matched": true
+    },
+    {
+      "path": "blueprint.tests.0.text",
+      "text": "A fingertip scan. Rest your fingertip on a scanner for about 15 seconds. It reads your carotenoids: the antioxidants that help protect your cells. No blood. No needles.",
+      "matched": true
+    },
+    {
+      "path": "blueprint.tests.1.text",
+      "text": "One blood draw. We check a wide panel of longevity and stem cell markers. It shows how your metabolism, organs and cells are working right now.",
+      "matched": true
+    },
+    {
+      "path": "blueprint.tests.2.text",
+      "text": "A quick cheek swab. NutriDNA by Strand Life Sciences reads how your genes affect food, weight, exercise, inflammation and sleep. The full report runs to around 200 pages. We turn it into a few clear actions.",
+      "matched": true
+    },
+    {
+      "path": "twin.dashboard",
+      "text": "Each result goes straight into your private BIOVITY dashboard. When all three are ready, you and our team get a message at the same time. Nothing waits. Nothing gets missed.",
+      "matched": true
+    },
+    {
+      "path": "twin.twin",
+      "text": "We turn all your results into one picture of your body. Green flags show what’s working well. Red flags show where to focus. Tap any flag to see what it means, in plain words.",
+      "matched": true
+    },
+    {
+      "path": "twin.reveal",
+      "text": "You never read your results alone. In a private meeting, your clinician walks you through your Twin, flag by flag. Then we turn it into your plan.",
+      "matched": true
+    },
+    {
+      "path": "dox.eyebrow",
+      "text": "STEP 03 · DOX · NUTRITION DETOX & ANF LIVER CLEANSE",
+      "matched": true
+    },
+    {
+      "path": "dox.body",
+      "text": "Think of your stem cells as seeds. Seeds grow best in healthy soil. DOX gets that soil ready. It has two parts, and both are built from your BIOBLUEPRINT results.",
+      "matched": true
+    },
+    {
+      "path": "dox.atEnd",
+      "text": "We re-check key markers. You see how your body has responded. And you’re ready for the next step.",
+      "matched": true
+    },
+    {
+      "path": "dox.who",
+      "text": "Anyone preparing for CELLUTION. And anyone who wants structured help with food, lifestyle and recovery, alongside their usual medical care.",
+      "matched": true
+    },
+    {
+      "path": "dox.parts.0.text",
+      "text": "A food plan made for you. It takes out what works against your body. It adds what your body needs. Our team checks in and adjusts it as you go.",
+      "matched": true
+    },
+    {
+      "path": "dox.parts.1.text",
+      "text": "A course of ANF sessions at the Centre, given by our clinical team. They run alongside your food plan to support your liver and your recovery.",
+      "matched": true
+    },
+    {
+      "path": "dox.disclaimer",
+      "text": "DOX is not a replacement for medical detox, treatment of poisoning, or treatment for a medical condition.",
+      "matched": true
+    },
+    {
+      "path": "cellution.eyebrow",
+      "text": "STEP 04 · CELLUTION · REGENERATIVE MEDICINE",
+      "matched": true
+    },
+    {
+      "path": "cellution.body",
+      "text": "CELLUTION is our regenerative medicine programme. It uses only your own body, in two parts, in one visit.",
+      "matched": true
+    },
+    {
+      "path": "cellution.parts.0.text",
+      "text": "We take a small blood sample and separate your platelets using the SW PRP system. Platelets carry growth factors: your body’s natural repair signals.",
+      "matched": true
+    },
+    {
+      "path": "cellution.parts.1.text",
+      "text": "We collect a small amount of your bone marrow and concentrate your stem cells, your body’s repair cells. BMAC stands for Bone Marrow Aspirate Concentrate.",
+      "matched": true
+    },
+    {
+      "path": "cellution.rules.0.text",
+      "text": "Only your own blood and your own cells. No donor cells.",
+      "matched": true
+    },
+    {
+      "path": "cellution.rules.1.text",
+      "text": "Everything is concentrated in a centrifuge. Nothing is grown or multiplied in a lab.",
+      "matched": true
+    },
+    {
+      "path": "cellution.rules.2.text",
+      "text": "Your cells are not changed in any way. And they never leave the Centre.",
+      "matched": true
+    },
+    {
+      "path": "cellution.who",
+      "text": "People with joint wear (such as knee osteoarthritis), diabetes, or fertility concerns, once a specialist confirms it’s suitable.",
+      "matched": true
+    },
+    {
+      "path": "howCellution.steps.0.text",
+      "text": "A specialist reviews your results and decides with you if CELLUTION is right for you.",
+      "matched": true
+    },
+    {
+      "path": "howCellution.steps.1.text",
+      "text": "A small blood sample and a small amount of bone marrow are collected, under local anaesthetic.",
+      "matched": true
+    },
+    {
+      "path": "howCellution.steps.2.text",
+      "text": "Our in-house lab separates your platelets and concentrates your bone marrow cells in a centrifuge. That’s all. Every sample is labelled at your bedside.",
+      "matched": true
+    },
+    {
+      "path": "howCellution.steps.3.text",
+      "text": "Your growth factors and cells are given back to you in the same visit, usually within an hour. We record exactly how much was collected and how much was returned.",
+      "matched": true
+    },
+    {
+      "path": "howCellution.steps.4.text",
+      "text": "We track how you’re doing through CONTINUUM.",
+      "matched": true
+    },
+    {
+      "path": "howCellution.areas.0",
+      "text": "Joints: for wear and tear, such as knee osteoarthritis, after an orthopaedic assessment",
+      "matched": true
+    },
+    {
+      "path": "howCellution.areas.1",
+      "text": "Diabetes: alongside your usual diabetes care, never instead of it",
+      "matched": true
+    },
+    {
+      "path": "howCellution.areas.2",
+      "text": "Fertility: for women and men, alongside specialist fertility care",
+      "matched": true
+    },
+    {
+      "path": "howCellution.disclaimer",
+      "text": "Every patient is assessed, gives informed consent and is followed up. We never promise a cure. And CELLUTION isn’t right for everyone.",
+      "matched": true
+    },
+    {
+      "path": "continuum.body",
+      "text": "Your body keeps changing. So your care shouldn’t stop after one visit. CONTINUUM is a year of follow-up, as a private membership.",
+      "matched": true
+    },
+    {
+      "path": "continuum.note",
+      "text": "What’s included depends on your membership level.",
+      "matched": true
+    },
+    {
+      "path": "biology.body",
+      "text": "One test is a snapshot. Repeat tests tell the story. Your dashboard shows your Twin at the start, and at every check-up after. We report what we measure. We never promise outcomes.",
+      "matched": true
+    },
+    {
+      "path": "founder.headline",
+      "text": "A scientist’s view. A human purpose.",
+      "matched": true
+    },
+    {
+      "path": "founder.title",
+      "text": "Founder & Scientific Director, BIOVITY · Founder, THOP",
+      "matched": true
+    },
+    {
+      "path": "founder.body",
+      "text": "Dr Praj Shendge has spent more than ten years in biotechnology, embryology, stem cells and regenerative medicine in the United Kingdom. Along the way, she saw how split up and confusing healthcare can feel. BIOVITY is her answer. One place where the science of your body is brought together, and explained.",
+      "matched": true
+    },
+    {
+      "path": "founder.portrait",
+      "text": "Portrait pending client confirmation",
+      "matched": true
+    },
+    {
+      "path": "team.headline",
+      "text": "The right experts. The right setting.",
+      "matched": true
+    },
+    {
+      "path": "team.body",
+      "text": "Our team includes qualified doctors, specialists, labs and technology partners. Every medical decision is made by a registered doctor. We show you their qualifications, because trust should be earned.",
+      "matched": true
+    },
+    {
+      "path": "centre.title",
+      "text": "A calm space in Mumbai, designed for clarity.",
+      "matched": true
+    },
+    {
+      "path": "centre.body",
+      "text": "Quiet. Private. Discreet. Your consultation, tests, results and treatment, all under one roof.",
+      "matched": true
+    },
+    {
+      "path": "centre.rows.1.detail",
+      "text": "We map your biology with three simple tests.",
+      "matched": true
+    },
+    {
+      "path": "centre.rows.2.detail",
+      "text": "We prepare your body with food and liver support.",
+      "matched": true
+    },
+    {
+      "path": "centre.rows.3.detail",
+      "text": "Your own stem cells, working for you, when it’s right for you.",
+      "matched": true
+    },
+    {
+      "path": "faqs.0.a",
+      "text": "Everyone starts with DISCOVER and BIOBLUEPRINT. What comes next depends on your results and your goals.",
+      "matched": true
+    },
+    {
+      "path": "faqs.1.a",
+      "text": "The fingertip scan and cheek swab are painless. The blood test is a normal blood draw. CELLUTION uses a local anaesthetic.",
+      "matched": true
+    },
+    {
+      "path": "faqs.2.a",
+      "text": "[To be confirmed by BIOVITY]. You’ll get a message the moment they’re all ready.",
+      "matched": true
+    },
+    {
+      "path": "faqs.3.a",
+      "text": "Only a specialist can say, after your assessment. It’s for joint wear, diabetes and fertility concerns.",
+      "matched": true
+    },
+    {
+      "path": "contact.eyebrow",
+      "text": "BIOVITY · BIOLOGICAL LONGEVITY CENTRE · Mumbai",
+      "matched": true
+    },
+    {
+      "path": "contact.title",
+      "text": "Your next chapter begins with understanding.",
+      "matched": true
+    },
+    {
+      "path": "contact.body",
+      "text": "You don’t need to have it all figured out. You just need a first conversation. We’ll take it from there.",
+      "matched": true
+    },
+    {
+      "path": "contact.brandLine",
+      "text": "BIOVITY · BIOLOGICAL LONGEVITY CENTRE · Mumbai, India",
+      "matched": true
+    },
+    {
+      "path": "contact.disclaimer",
+      "text": "This website is for general information. It does not replace advice from a registered doctor. All medical decisions at BIOVITY are made by registered medical practitioners.",
+      "matched": true
+    }
+  ]
+}

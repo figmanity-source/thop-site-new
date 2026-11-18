@@ -1,0 +1,65 @@
+/* Shared header motion. Independent translate preserves the dock's centering transform. */
+.cinematic-home:not(.past-intro) .cine-header {
+  min-height:64px; padding-block:10px;
+}
+.cinematic-home:not(.past-intro) .cine-header nav.open {
+  top:64px; min-height:calc(100svh - 64px);
+}
+@media (max-width:767px) {
+  .cinematic-home:not(.past-intro) .cine-header { min-height:60px; padding-block:9px; }
+  .cinematic-home:not(.past-intro) .cine-header nav.open { top:60px; min-height:calc(100svh - 60px); }
+}
+@keyframes biovity-header-enter {
+  from { opacity:0; translate:0 14px; }
+  to { opacity:1; translate:0 0; }
+}
+@keyframes biovity-link-enter {
+  from { opacity:0; translate:0 10px; }
+  to { opacity:1; translate:0 0; }
+}
+.cine-header[data-header-ready=false] { opacity:0; pointer-events:none; }
+.cine-header[data-header-ready=true]:not([data-dock-managed]),
+.past-intro .cine-header[data-header-ready=true]:not([data-dock-managed]),
+.inner-experience #header.inner-nav[data-animated-header] {
+  animation:biovity-header-enter .75s cubic-bezier(.2,.8,.2,1) both;
+}
+.cinematic-home .cine-header[data-dock-managed] { animation:none; }
+.cine-header[data-dock-transition] { pointer-events:none; }
+[data-animated-header] nav a { transition:background .25s,color .25s,translate .25s cubic-bezier(.2,.8,.2,1); }
+@media (hover:hover) {
+  [data-animated-header] nav a:hover { translate:0 -2px; }
+  [data-animated-header] :is(.logo,.cine-brand):hover { opacity:.65; }
+}
+[data-animated-header] :is(.logo,.cine-brand) { transition:opacity .3s; }
+[data-animated-header] :is(.enquire,.cine-button) svg { transition:transform .35s cubic-bezier(.2,.8,.2,1); }
+[data-animated-header] :is(.enquire,.cine-button):hover svg { transform:translate(3px,-3px); }
+[data-animated-header] :is(.menu-toggle,.cine-menu) span { transition:transform .35s cubic-bezier(.2,.8,.2,1); }
+[data-animated-header] nav {
+  transition:opacity .25s,translate .35s cubic-bezier(.2,.8,.2,1),display .35s allow-discrete;
+}
+[data-animated-header] nav.open { opacity:1; translate:0 0; }
+[data-animated-header] nav.open a { animation:biovity-link-enter .4s cubic-bezier(.2,.8,.2,1) both; }
+[data-animated-header] nav.open a:nth-child(2) { animation-delay:.035s; }
+[data-animated-header] nav.open a:nth-child(3) { animation-delay:.07s; }
+[data-animated-header] nav.open a:nth-child(4) { animation-delay:.105s; }
+[data-animated-header] nav.open a:nth-child(5) { animation-delay:.14s; }
+[data-animated-header] nav.open a:nth-child(6) { animation-delay:.175s; }
+@media (max-width:1279px) {
+  .cinematic-home:not(.past-intro) [data-animated-header] nav:not(.open) { opacity:0; translate:0 -12px; pointer-events:none; }
+}
+@media (max-width:1023px) {
+  .past-intro [data-animated-header] nav:not(.open),
+  .inner-experience [data-animated-header] nav:not(.open) { opacity:0; translate:0 12px; pointer-events:none; }
+}
+@starting-style {
+  [data-animated-header] nav.open { opacity:0; translate:0 12px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .cine-header[data-header-ready=true],.past-intro .cine-header[data-header-ready=true],
+  .inner-experience #header.inner-nav[data-animated-header],
+  [data-animated-header] nav.open a { animation:none; }
+  [data-animated-header] nav,[data-animated-header] nav a,
+  [data-animated-header] :is(.logo,.cine-brand),
+  [data-animated-header] :is(.enquire,.cine-button) svg,
+  [data-animated-header] :is(.menu-toggle,.cine-menu) span { transition:none; }
+}

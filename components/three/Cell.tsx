@@ -8,12 +8,13 @@ import { useModelTransform } from "./useModelTransform";
  * Procedural stem cell: glass membrane, chrome nucleus, orbiting organelles
  * and orbit rings (echoing the glass-sphere visuals of the THOP demo).
  */
-export default function Cell() {
+export default function Cell({ paused = false }: { paused?: boolean }) {
   const root = useRef<THREE.Group>(null);
   const nucleus = useRef<THREE.Mesh>(null);
   const membrane = useRef<THREE.Mesh>(null);
   const rings = useRef<THREE.Group>(null);
   const organelles = useRef<THREE.Group>(null);
+  const initialized = useRef(false);
 
   const mats = useMemo(() => ({ glass: glass(), chrome: chrome(), ring: chrome() }), []);
   const orgData = useMemo(
@@ -28,6 +29,8 @@ export default function Cell() {
   );
 
   useModelTransform("cell", root, (_g, t, dt) => {
+    if (paused && initialized.current) return;
+    initialized.current = true;
     if (nucleus.current) nucleus.current.scale.setScalar(1 + Math.sin(t * 1.6) * 0.035);
     if (membrane.current) {
       membrane.current.scale.set(1 + Math.sin(t * 0.9) * 0.015, 1 + Math.cos(t * 0.7) * 0.02, 1 + Math.sin(t * 0.8 + 1) * 0.015);

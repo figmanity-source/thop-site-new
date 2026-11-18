@@ -1,0 +1,293 @@
+{
+  "results": [
+    {
+      "route": "/about",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "We help you understand your body, and act early.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/pathways",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Different goals. Different journeys.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/pathways/longevity",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Live longer. Live better.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/pathways/performance",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Energy, focus and recovery, at your best.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/pathways/metabolic",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Take charge of your sugar, weight and energy.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/pathways/fertility",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Your fertility, understood.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/pathways/joints",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Move freely again.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/pathways/executive",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "A clear picture of your health. In very little time.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/science",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Beyond the surface. Into the biology.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/your-journey",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Your journey starts with a conversation.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/founder",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "A vision shaped by science, and by people.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/team",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "The people behind your care.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/centre",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "A calm space, designed for clarity.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/journal",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "The BIOVITY Journal.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/ethics-committee",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Independent eyes on everything we do.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/privacy",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Privacy Policy",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/terms",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Terms of Use",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/medical-disclaimer",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Medical Disclaimer",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/cookies",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Cookie Policy",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/member-login",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Welcome back.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/about",
+      "width": 768,
+      "scrollWidth": 753,
+      "title": "We help you understand your body, and act early.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/about",
+      "width": 360,
+      "scrollWidth": 360,
+      "title": "We help you understand your body, and act early.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/pathways",
+      "width": 768,
+      "scrollWidth": 753,
+      "title": "Different goals. Different journeys.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/pathways",
+      "width": 360,
+      "scrollWidth": 360,
+      "title": "Different goals. Different journeys.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/science",
+      "width": 768,
+      "scrollWidth": 753,
+      "title": "Beyond the surface. Into the biology.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/science",
+      "width": 360,
+      "scrollWidth": 360,
+      "title": "Beyond the surface. Into the biology.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/your-journey",
+      "width": 768,
+      "scrollWidth": 753,
+      "title": "Your journey starts with a conversation.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/your-journey",
+      "width": 360,
+      "scrollWidth": 360,
+      "title": "Your journey starts with a conversation.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/centre",
+      "width": 768,
+      "scrollWidth": 753,
+      "title": "A calm space, designed for clarity.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/centre",
+      "width": 360,
+      "scrollWidth": 360,
+      "title": "A calm space, designed for clarity.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/member-login",
+      "width": 768,
+      "scrollWidth": 753,
+      "title": "Welcome back.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/member-login",
+      "width": 360,
+      "scrollWidth": 360,
+      "title": "Welcome back.",
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    }
+  ],
+  "errors": []
+}

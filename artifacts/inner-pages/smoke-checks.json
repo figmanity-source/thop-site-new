@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "route": "/about",
+      "width": 360,
+      "scrollWidth": 360,
+      "title": "We help you understand your body, and act early.",
+      "stage": false,
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/your-journey",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "title": "Your journey starts with a conversation.",
+      "stage": true,
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    },
+    {
+      "route": "/your-journey",
+      "width": 360,
+      "scrollWidth": 360,
+      "title": "Your journey starts with a conversation.",
+      "stage": false,
+      "nav": 6,
+      "dock": true,
+      "internalScrollbars": 0
+    }
+  ],
+  "errors": []
+}

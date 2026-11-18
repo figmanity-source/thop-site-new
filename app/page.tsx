@@ -1,5 +1,5 @@
-import Experience from "@/components/Experience";
+import CinematicHome from "@/components/home/CinematicHome";
 
 export default function Page() {
-  return <Experience />;
+  return <CinematicHome />;
 }

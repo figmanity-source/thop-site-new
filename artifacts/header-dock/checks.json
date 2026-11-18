@@ -1,0 +1,53 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "samples": [
+        {
+          "docked": true,
+          "opacity": 0
+        },
+        {
+          "docked": false,
+          "opacity": 0
+        }
+      ],
+      "final": {
+        "docked": true,
+        "opacity": 1,
+        "pointer": "auto",
+        "transition": false,
+        "top": 810,
+        "bottom": 876,
+        "viewport": 900,
+        "scene": "healthspan",
+        "scrollY": 1384
+      }
+    },
+    {
+      "width": 360,
+      "samples": [
+        {
+          "docked": true,
+          "opacity": 0
+        },
+        {
+          "docked": false,
+          "opacity": 0
+        }
+      ],
+      "final": {
+        "docked": true,
+        "opacity": 1,
+        "pointer": "auto",
+        "transition": false,
+        "top": 824,
+        "bottom": 886,
+        "viewport": 900,
+        "scene": "healthspan",
+        "scrollY": 1927
+      }
+    }
+  ],
+  "errors": []
+}

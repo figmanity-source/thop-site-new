@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { brand } from "@/lib/content";
 import { useEnquiry } from "./Enquiry";
 import { NE } from "./Icons";
+import "../styles/header-motion.css";
 
 const links = [
   { label: "THOP", href: "/" },
@@ -17,7 +18,7 @@ const links = [
 
 const aboutPaths = ["/about", "/founder", "/team", "/ethics-committee"];
 
-export default function Header() {
+export default function Header({ variant = "default" }: { variant?: "default" | "inner" }) {
   const [open, setOpen] = useState(false);
   const [onDark, setOnDark] = useState(false);
   const pathname = usePathname();
@@ -25,6 +26,7 @@ export default function Header() {
   const close = () => setOpen(false);
 
   useEffect(() => {
+    if (variant === "inner") return;
     const band = 64;
     let current = false;
     let frame = 0;
@@ -62,7 +64,7 @@ export default function Header() {
       window.cancelAnimationFrame(frame);
       window.removeEventListener("resize", check);
     };
-  }, [pathname]);
+  }, [pathname, variant]);
 
   useEffect(() => {
     if (!open) return;
@@ -83,12 +85,11 @@ export default function Header() {
   };
 
   return (
-    <header id="header" className={[open ? "menu-open" : "", onDark ? "on-dark" : ""].filter(Boolean).join(" ")}>
+    <header id="header" data-animated-header="" data-header-ready="true" className={[variant === "inner" ? "inner-nav" : "", open ? "menu-open" : "", onDark ? "on-dark" : ""].filter(Boolean).join(" ")}>
       <Link className="logo" href="/" onClick={close}>
         <span>{brand.name}</span>
-        <small>{brand.tagline}</small>
       </Link>
-      <nav className={open ? "open" : ""}>
+      <nav id="site-navigation" className={open ? "open" : ""} aria-label="Main navigation">
         {links.map((item) => (
           <Link key={item.href} href={item.href} onClick={close} aria-current={current(item.href) ? "page" : undefined}>{item.label}</Link>
         ))}
@@ -105,6 +106,7 @@ export default function Header() {
         <button
           className="menu-toggle"
           aria-expanded={open}
+          aria-controls="site-navigation"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >

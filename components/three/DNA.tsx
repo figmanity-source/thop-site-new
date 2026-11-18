@@ -17,7 +17,7 @@ const HEIGHT = 3.0;
 const RADIUS = 0.5;
 const TURNS = 2.6;
 
-export default function DNA() {
+export default function DNA({ paused = false }: { paused?: boolean }) {
   const root = useRef<THREE.Group>(null);
   const spin = useRef<THREE.Group>(null);
   const segRefs = useRef<(THREE.Group | null)[]>([]);
@@ -59,7 +59,7 @@ export default function DNA() {
   }, []);
 
   useModelTransform("dna", root, (_g, _t, dt) => {
-    if (spin.current) spin.current.rotation.y += dt * 0.35 * (1 - scene.explode * 0.7);
+    if (spin.current && !paused) spin.current.rotation.y += dt * 0.35 * (1 - scene.explode * 0.7);
   });
 
   const v = useMemo(() => new THREE.Vector3(), []);

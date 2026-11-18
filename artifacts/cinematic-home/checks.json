@@ -1,0 +1,37 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "scrollWidth": 1425,
+      "sections": 15,
+      "canvas": true,
+      "title": "YOUR BIOLOGY IS YOUR GREATEST ASSET.",
+      "internalScrollbars": 0
+    },
+    {
+      "width": 1280,
+      "scrollWidth": 1265,
+      "sections": 15,
+      "canvas": true,
+      "title": "YOUR BIOLOGY IS YOUR GREATEST ASSET.",
+      "internalScrollbars": 0
+    },
+    {
+      "width": 768,
+      "scrollWidth": 753,
+      "sections": 15,
+      "canvas": true,
+      "title": "YOUR BIOLOGY IS YOUR GREATEST ASSET.",
+      "internalScrollbars": 0
+    },
+    {
+      "width": 360,
+      "scrollWidth": 360,
+      "sections": 15,
+      "canvas": true,
+      "title": "YOUR BIOLOGY IS YOUR GREATEST ASSET.",
+      "internalScrollbars": 0
+    }
+  ],
+  "errors": []
+}

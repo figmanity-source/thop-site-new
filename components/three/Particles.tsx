@@ -1,17 +1,17 @@
 "use client";
 import { useMemo, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { scene } from "@/lib/scene";
 
 /** Swirling particle vortex used behind the BioBlueprint (dark) scenes. */
 const COUNT = 14000;
 
-function makeLayer(seed: number) {
+function makeLayer(seed: number, count = COUNT) {
   let s = seed;
   const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
-  const pos = new Float32Array(COUNT * 3);
-  for (let i = 0; i < COUNT; i++) {
+  const pos = new Float32Array(count * 3);
+  for (let i = 0; i < count; i++) {
     const arm = Math.floor(rnd() * 3);
     const r = 0.7 + Math.pow(rnd(), 0.8) * 3.6;
     const theta = arm * ((Math.PI * 2) / 3) + r * 1.35 + (rnd() - 0.5) * 0.55;
@@ -25,11 +25,13 @@ function makeLayer(seed: number) {
   return g;
 }
 
-export default function Particles() {
+export default function Particles({ dense = false, paused = false }: { dense?: boolean; paused?: boolean }) {
+  const width = useThree((state) => state.size.width);
+  const count = dense ? (width < 768 ? 3500 : 18000) : COUNT;
   const group = useRef<THREE.Group>(null);
   const a = useRef<THREE.Points>(null);
   const b = useRef<THREE.Points>(null);
-  const layers = useMemo(() => [makeLayer(7), makeLayer(23)], []);
+  const layers = useMemo(() => [makeLayer(7, count), makeLayer(23, count)], [count]);
   const mats = useMemo(
     () => [0.018, 0.011].map((size) => new THREE.PointsMaterial({ size, color: "#ffffff", transparent: true, opacity: 0, depthWrite: false, sizeAttenuation: true })),
     [],
@@ -42,8 +44,8 @@ export default function Particles() {
     if (!group.current.visible) return;
     mats[0].opacity = o * 0.75;
     mats[1].opacity = o * 0.45;
-    if (a.current) a.current.rotation.y += dt * 0.12;
-    if (b.current) b.current.rotation.y -= dt * 0.07;
+    if (a.current && !paused) a.current.rotation.y += dt * 0.12;
+    if (b.current && !paused) b.current.rotation.y -= dt * 0.07;
     group.current.rotation.z = 0.25 + (1 - o) * 0.6;
     group.current.scale.setScalar(0.8 + o * 0.4);
   });

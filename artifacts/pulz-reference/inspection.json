@@ -1,0 +1,60 @@
+{
+  "title": "PulzCAD",
+  "height": 13424,
+  "scripts": [
+    "https://www.pulz.ai/_next/static/chunks/4bd1b696-68f5cadccebdb738.js",
+    "https://www.pulz.ai/_next/static/chunks/684-c2bbb41422f7c54f.js",
+    "https://www.pulz.ai/_next/static/chunks/main-app-3a0bfa57e3fa46a2.js",
+    "https://www.pulz.ai/_next/static/chunks/c15bf2b0-d67976aba37a88f8.js",
+    "https://www.pulz.ai/_next/static/chunks/1329d575-bd690d1db173e3ef.js",
+    "https://www.pulz.ai/_next/static/chunks/637-1f24c8bd2990bd9c.js",
+    "https://www.pulz.ai/_next/static/chunks/519-aef42ed259965e7d.js",
+    "https://www.pulz.ai/_next/static/chunks/212-8a1953e1f9706130.js",
+    "https://www.pulz.ai/_next/static/chunks/app/layout-f93f00201868bd62.js",
+    "https://www.pulz.ai/_next/static/chunks/696-30b34735a054e095.js",
+    "https://www.pulz.ai/_next/static/chunks/279-c6bad913b868a24a.js",
+    "https://www.pulz.ai/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "https://www.pulz.ai/_next/static/chunks/webpack-3f5fed6faaa2e960.js"
+  ],
+  "styles": [
+    "https://www.pulz.ai/_next/static/css/692e4483543dc64b.css"
+  ],
+  "sections": [
+    {
+      "classes": "relative pt-[10vh] px-section h-[200vw] md:h-[80vw] w-full overflow-x-clip",
+      "text": "Revolutionizing Cardiac Stress Testing with\n\nPulzCAD™\n\nPulzCAD™ is a next-generation 2-lead wearable ECG device for cardiac stress testing that provides advance",
+      "height": 1152
+    },
+    {
+      "classes": "md:px-section",
+      "text": "CHALLENGE OF CAD\nUnderstanding the\nburden of coronary\nartery disease\n\nCoronary Artery Disease (CAD) is the leading cause of death among all non-communicable dis",
+      "height": 1645
+    },
+    {
+      "classes": "h-[60vh] md:h-screen w-full overflow-hidden",
+      "text": "",
+      "height": 1000
+    },
+    {
+      "classes": " bg-white h-fit w-full text-black",
+      "text": "NEXT-GEN TESTING\nACCURATE.\nADVANCED. EASY.\n\nPulzCAD™ enables exceptional diagnostic accuracy exhibiting ~85-90%sensitivity and ~75-85% specificity in early blin",
+      "height": 1663
+    },
+    {
+      "classes": "p-section bg-white text-black",
+      "text": "Discover The Innovation Behind PulzCAD's Cutting Edge Stress ECG Technology\nUnmatched Accuracy and Efficiency in Cardiac Stress Testing\n\nCompact chest-wearable ",
+      "height": 2527
+    },
+    {
+      "classes": "p-section",
+      "text": "TRY IT\nHow Can You Experience The PulzCAD™ Difference?\n\nPulzCAD™ is now commercially available in India where CDSCO approved medical devices can be commercially",
+      "height": 1407
+    },
+    {
+      "classes": "w-full md:w-[70vw] py-[20vh] mx-auto max-md:p-section md:pr-section",
+      "text": "FAQ\n\nWhat exactly is PulzCAD™?\n\nThe PulzCAD™ device is a next-gen wearable Cardiac Stress Testing system that comprises of 3 distinct components: i. a compact c",
+      "height": 1162
+    }
+  ],
+  "bodyBg": "rgb(0, 35, 42)"
+}
