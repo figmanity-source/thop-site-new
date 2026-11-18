@@ -1,3 +1,49 @@
+#header.inner-nav { position:fixed; z-index:30; inset:auto auto 24px 50%; transform:translateX(-50%); width:max-content; max-width:calc(100% - 40px); display:flex; align-items:center; justify-content:space-between; gap:22px; min-height:64px; padding:9px 10px 9px 24px; background:#f2f1eed6; color:#161514; border:1px solid #16151425; border-radius:100px; backdrop-filter:blur(12px); box-shadow:none; }
+body:has(.cinematic-home #loader:not([style*="display: none"])) #header.inner-nav { visibility:hidden; }
+#header.inner-nav.menu-open { color:#161514; }
+#header.inner-nav .logo { display:flex; flex-direction:column; gap:0; flex:none; }
+#header.inner-nav .logo > span { font-size:16px; font-weight: 500; letter-spacing:.02em; line-height:1; }
+#header.inner-nav .logo small { display:none; }
+#header.inner-nav nav { position:static; display:flex; flex-direction:row; gap:4px; padding:0; background:transparent; min-height:0; border:0; }
+#header.inner-nav nav a { color:#4b4844; opacity:1; font-size: var(--type-label); letter-spacing: var(--ls-nav); text-transform: uppercase; padding:12px 14px; border-radius:30px; font-weight: 400; }
+#header.inner-nav nav a[aria-current=page] { background:#d6d4d0; color:#161514; }
+#header.inner-nav nav a::after { display:none; }
+#header.inner-nav .header-actions { display:flex; align-items:center; gap:10px; }
+#header.inner-nav .enquire { display:flex; align-items:center; gap:18px; border:1px solid #161514; border-radius:50px; background:#161514; color:#f2f1ee; padding:13px 20px; min-height:44px; font-size: var(--type-button); letter-spacing: var(--ls-button); line-height:1.4; white-space:nowrap; font-family: var(--font-sans); font-weight: 500; text-transform: uppercase; }
+#header.inner-nav .sign-in { display:flex; align-items:center; justify-content:center; width:28px; height:36px; color:#161514; }
+#header.inner-nav .menu-toggle { display:none; color:#161514; }
+#header.inner-nav :is(.sign-in,.menu-toggle) { border-radius:50%; }
+#header.inner-nav :is(nav a,.enquire,.sign-in,.menu-toggle) {
+  transition:background-color .22s ease-out,color .22s ease-out,transform .25s cubic-bezier(.2,.8,.2,1);
+}
+#header.inner-nav :is(.logo,nav a,.enquire,.sign-in,.menu-toggle):focus-visible {
+  outline:2px solid #665e55;
+  outline-offset:3px;
+}
+@media (hover:hover) and (pointer:fine) {
+  #header.inner-nav :is(nav a,.sign-in,.menu-toggle):hover { background-color:#d6d4d0; color:#161514; }
+  #header.inner-nav .enquire:hover { background-color:#4b4844; }
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  #header.inner-nav :is(nav a,.enquire,.sign-in,.menu-toggle):hover { transform:translateY(-1px); }
+  #header.inner-nav .enquire:hover svg { transform:translate(2px,-2px); }
+}
+@media (max-width:1023px) {
+  #header.inner-nav nav { position:absolute; inset:auto 0 80px; display:none; flex-direction:column; padding:20px; border:1px solid #16151425; background:#f2f1ee; border-radius:24px; min-height:0; max-height:calc(100svh - 180px); overflow-y:auto; }
+  #header.inner-nav .menu-toggle { display:flex; width:28px; height:36px; flex-direction:column; align-items:center; justify-content:center; gap:7px; }
+  #header.inner-nav .menu-toggle span { position:static; display:block; width:20px; height:1px; background:currentColor; }
+  #header.inner-nav nav.open { display: flex; }
+  #header.inner-nav nav a { padding:14px 12px; }
+  #header.inner-nav .sign-in { display:none; }
+}
+@media (max-width:767px) {
+  #header.inner-nav { bottom:14px; width:calc(100% - 28px); max-width:none; gap:10px; padding:8px 12px 8px 18px; min-height:62px; }
+  #header.inner-nav .logo > span { font-size:15px; }
+  #header.inner-nav .header-actions { margin-left:auto; gap:12px; min-width:0; }
+  #header.inner-nav .enquire { padding:12px 10px; min-height:40px; max-width:11.5em; gap:8px; white-space:normal; }
+  #header.inner-nav .enquire svg { width:13px; flex-shrink:0; }
+}
+
 /* Shared header motion. Independent translate preserves the dock's centering transform. */
 .cinematic-home:not(.past-intro) .cine-header {
   min-height:64px; padding-block:10px;
@@ -22,19 +68,19 @@
 .cine-header[data-header-ready=false] { opacity:0; pointer-events:none; }
 .cine-header[data-header-ready=true]:not([data-dock-managed]),
 .past-intro .cine-header[data-header-ready=true]:not([data-dock-managed]),
-.inner-experience #header.inner-nav[data-animated-header] {
+#header.inner-nav[data-animated-header] {
   animation:biovity-header-enter .75s cubic-bezier(.2,.8,.2,1) both;
 }
 .cinematic-home .cine-header[data-dock-managed] { animation:none; }
 .cine-header[data-dock-transition] { pointer-events:none; }
 [data-animated-header] nav a { transition:background .25s,color .25s,translate .25s cubic-bezier(.2,.8,.2,1); }
 @media (hover:hover) {
-  [data-animated-header] nav a:hover { translate:0 -2px; }
+  [data-animated-header]:not(.inner-nav) nav a:hover { translate:0 -2px; }
   [data-animated-header] :is(.logo,.cine-brand):hover { opacity:.65; }
 }
 [data-animated-header] :is(.logo,.cine-brand) { transition:opacity .3s; }
 [data-animated-header] :is(.enquire,.cine-button) svg { transition:transform .35s cubic-bezier(.2,.8,.2,1); }
-[data-animated-header] :is(.enquire,.cine-button):hover svg { transform:translate(3px,-3px); }
+[data-animated-header]:not(.inner-nav) :is(.enquire,.cine-button):hover svg { transform:translate(3px,-3px); }
 [data-animated-header] :is(.menu-toggle,.cine-menu) span { transition:transform .35s cubic-bezier(.2,.8,.2,1); }
 [data-animated-header] nav {
   transition:opacity .25s,translate .35s cubic-bezier(.2,.8,.2,1),display .35s allow-discrete;
@@ -51,17 +97,18 @@
 }
 @media (max-width:1023px) {
   .past-intro [data-animated-header] nav:not(.open),
-  .inner-experience [data-animated-header] nav:not(.open) { opacity:0; translate:0 12px; pointer-events:none; }
+  #header.inner-nav[data-animated-header] nav:not(.open) { opacity:0; translate:0 12px; pointer-events:none; }
 }
 @starting-style {
   [data-animated-header] nav.open { opacity:0; translate:0 12px; }
 }
 @media (prefers-reduced-motion:reduce) {
   .cine-header[data-header-ready=true],.past-intro .cine-header[data-header-ready=true],
-  .inner-experience #header.inner-nav[data-animated-header],
+  #header.inner-nav[data-animated-header],
   [data-animated-header] nav.open a { animation:none; }
   [data-animated-header] nav,[data-animated-header] nav a,
   [data-animated-header] :is(.logo,.cine-brand),
   [data-animated-header] :is(.enquire,.cine-button) svg,
-  [data-animated-header] :is(.menu-toggle,.cine-menu) span { transition:none; }
+  [data-animated-header] :is(.menu-toggle,.cine-menu) span,
+  #header.inner-nav :is(nav a,.enquire,.sign-in,.menu-toggle) { transition:none; }
 }

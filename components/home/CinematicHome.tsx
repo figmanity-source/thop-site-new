@@ -8,15 +8,13 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { setLenis } from "@/lib/lenis";
 import { scene, type ModelKey } from "@/lib/scene";
 import { brand, heroSlides, heroCta, seeSteps, healthspan, why, protocol, journey, blueprint, twin, dox, cellution, howCellution, continuum, biology, founder, team, centre, faqs, contact, type Interest } from "@/lib/content";
-import { EnquiryProvider, useEnquiry } from "../Enquiry";
+import { useEnquiry } from "../Enquiry";
 import { FooterColumns } from "../SiteFooter";
 import { BrandType } from "../BrandType";
 import { TabularDigits } from "../TabularDigits";
 import Loader from "../Loader";
 import SectionTransition from "./SectionTransition";
 import { buildPulzMotion } from "./PulzMotion";
-import { useHeaderEntrance } from "../useHeaderEntrance";
-import { useHeaderDock } from "../useHeaderDock";
 import "../../styles/home.css";
 import "../../styles/reference-theme.css";
 import "../../styles/product-sections.css";
@@ -25,6 +23,7 @@ import "../../styles/pulz-theme.css";
 import "../../styles/header-motion.css";
 
 const Scene = dynamic(() => import("../three/Scene"), { ssr: false });
+const InlineHelix = dynamic(() => import("../three/InnerStage").then((module) => module.InlineHelix), { ssr: false });
 const heroFilmCaptions = heroSlides.slice(1).map(slide => ({ name: slide.center, line: slide.left }));
 const homepageFaqs = faqs;
 const stages = ["discover", "bioblueprint", "dox", "cellution", "continuum"] as const;
@@ -58,14 +57,10 @@ function Chapter({ id, number, label, title, lead, children, model, light = fals
 }
 
 
-function Home() {
-  const headerReady = useHeaderEntrance(true);
-  const headerRef = useRef<HTMLElement>(null);
+export default function CinematicHome() {
   const root = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const [menu, setMenu] = useState(false);
   const [chapter, setChapter] = useState("intro");
-  const headerDocked = useHeaderDock(headerRef, chapter !== "intro", headerReady);
   const [zone, setZone] = useState(0);
   const [comparison, setComparison] = useState(0);
   const [reduce, setReduce] = useState(false);
@@ -83,13 +78,6 @@ function Home() {
   useEffect(() => {
     root.current?.classList.toggle("motion-paused", paused);
   }, [paused]);
-
-  useEffect(() => {
-    if (!menu) return;
-    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setMenu(false); };
-    window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
-  }, [menu]);
 
   useEffect(() => {
     const element = root.current;
@@ -186,19 +174,11 @@ function Home() {
   }, []);
 
   return (
-    <div className={`cinematic-home${headerDocked ? " past-intro" : ""}`} ref={root}>
+    <div className="cinematic-home" ref={root}>
       <a className="cine-skip" href="#home-content">Skip to content</a>
       <Loader />
       <Scene cinematic paused={paused || reduce} lightBackground={lightStage} hero={heroRef} />
       <div className="cine-progress" aria-hidden="true"><div className="cine-progress-fill" /></div>
-      <header ref={headerRef} data-animated-header="" data-header-ready={headerReady} className={`cine-header ${menu ? "is-open" : ""}`}>
-        <Link href="/" className="cine-brand" aria-label="BIOVITY home"><span>BIOVITY</span></Link>
-        <nav className={menu ? "open" : ""} id="cinema-navigation" aria-label="Main navigation">
-          {[ ["THOP", "/#five-steps"], ["Pathways", "/pathways"], ["Science", "/science"], ["Your Journey", "/your-journey"], ["About", "/about"], ["Journal", "/journal"]].map(([label, href]) => <Link key={href} href={href} onClick={() => setMenu(false)}>{label}</Link>)}
-        </nav>
-        <div className="cine-header-actions"><Link className="cine-login" href="/member-login" aria-label="Member sign in"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3" stroke="currentColor" /><path d="M5 21v-2a7 7 0 0 1 14 0v2" stroke="currentColor" /></svg></Link><Action>{heroCta}</Action><button className="cine-menu" aria-label={menu ? "Close menu" : "Open menu"} aria-expanded={menu} aria-controls="cinema-navigation" onClick={() => setMenu(!menu)}><span /><span /></button></div>
-      </header>
-
       <main id="home-content" className="cine-main">
         <section className="cine-hero cine-section cine-light" id="intro" data-cinema-model="twin">
           <div className="cine-hero-grid" aria-hidden="true" />
@@ -286,15 +266,26 @@ function Home() {
 
         <section id="questions" className="cine-section cine-light cine-faq" data-cinema-model="none"><SectionTransition /><div className="cine-section-top"><span>Questions people ask</span></div><div className="cine-faq-grid"><h2 data-cine-reveal>Questions<br />people ask.</h2><div>{homepageFaqs.map((faq, index) => <details key={faq.q} data-cine-reveal><summary><span><TabularDigits value={String(index + 1).padStart(2, "0")} /></span>{faq.q}<i>+</i></summary><p>{faq.a}</p></details>)}</div></div></section>
 
-        <footer id="contact" className="cine-section cine-footer" data-cinema-model="dna"><div className="cine-section-top"><span>{contact.eyebrow}</span></div><div className="cine-footer-opening" data-cine-reveal><h2>{contact.title}</h2><p className="cine-lead">{contact.body}</p><div className="cine-actions"><Action>{contact.primary}</Action><a href={brand.whatsapp} target="_blank" rel="noreferrer" className="cine-text-link">{contact.secondary}<Arrow /></a></div></div><FooterColumns /><div className="cine-footer-word" aria-hidden="true">BIOVITY</div></footer>
+        <footer id="contact" className="cine-section cine-footer" data-cinema-model="none">
+          <div className="cine-footer-intro">
+            <div className="cine-footer-opening" data-cine-reveal>
+              <div className="cine-section-top"><span>{contact.eyebrow}</span></div>
+              <h2>{contact.title}</h2>
+              <p className="cine-lead">{contact.body}</p>
+              <div className="cine-actions">
+                <Action>{contact.primary}</Action>
+                <a href={brand.whatsapp} target="_blank" rel="noreferrer" className="cine-text-link">{contact.secondary}<Arrow /></a>
+              </div>
+            </div>
+            <InlineHelix className="cine-footer-helix" />
+          </div>
+          <FooterColumns />
+          <div className="cine-footer-word" aria-hidden="true">BIOVITY</div>
+        </footer>
       </main>
 
       <aside className="cine-chapter-rail" aria-label="Jump to a THOP step">{stages.map((id, index) => <a key={id} href={`#${id}`} className={chapter === id ? "active" : ""} aria-current={chapter === id ? "step" : undefined}><span><TabularDigits value={String(index + 1).padStart(2, "0")} /></span><i /><span>{id}</span></a>)}</aside>
       <a className="cine-concierge" href={brand.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp BIOVITY"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11.5a9 9 0 0 1-13 8L3 21l1.5-5A9 9 0 1 1 21 11.5Z" stroke="currentColor" strokeWidth="1.4" /><path d="M8 7c0 5 3 8 8 9" stroke="currentColor" strokeWidth="1.4" /></svg><span>WhatsApp BIOVITY</span></a>
     </div>
   );
-}
-
-export default function CinematicHome() {
-  return <EnquiryProvider><Home /></EnquiryProvider>;
 }

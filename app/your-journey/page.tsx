@@ -5,6 +5,7 @@ import { EnquiryForm } from "@/components/Enquiry";
 import { SheetHero, SheetBand, BookButton, BulletList } from "@/components/Sheet";
 import JourneyLine from "@/components/JourneyLine";
 import VisitFaq from "@/components/VisitFaq";
+import { InlineHelix } from "@/components/three/InnerStage";
 import { journeySteps, centreRooms } from "@/lib/pages";
 import { brand, centre } from "@/lib/content";
 
@@ -59,7 +60,7 @@ export default function YourJourneyPage() {
           ))}
         </ol>
       </SheetBand>
-      <SheetBand title="Find us in Mumbai.">
+      <SheetBand title="Find us in Mumbai." headingVisual={<InlineHelix />}>
         <ul className="sheet-points">
           <li>Address [to be supplied]</li>
           <li>Opening hours [to be supplied]</li>
@@ -72,7 +73,7 @@ export default function YourJourneyPage() {
           <a className="pill" href={brand.whatsapp} target="_blank" rel="noreferrer">WHATSAPP BIOVITY</a>
         </div>
       </SheetBand>
-      <SheetBand id="concierge" kicker="YOUR COORDINATOR" title="One person looks after you." lead="Your coordinator books your visits, answers your questions and keeps everything on track. You can reach them on WhatsApp." object="dna">
+      <SheetBand id="concierge" kicker="YOUR COORDINATOR" title="One person looks after you." lead="Your coordinator books your visits, answers your questions and keeps everything on track. You can reach them on WhatsApp.">
         <p className="home-lead">Your information stays private. We never send results by WhatsApp or email. You see them in your secure dashboard.</p>
       </SheetBand>
       <SheetBand id="outside-mumbai" title="Coming from another city, or from abroad?" lead="Start with a video consultation. We’ll help you plan your tests and your visit. We can also suggest places to stay nearby.">

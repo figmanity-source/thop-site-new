@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Poppins } from "next/font/google";
+import { EnquiryProvider } from "@/components/Enquiry";
+import Header from "@/components/Header";
 import "../styles/sections.css";
 import "./globals.css";
 import "../styles/typography.css";
@@ -30,7 +32,12 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${poppins.variable} ${instrument.variable}`}>
-      <body>{children}</body>
+      <body>
+        <EnquiryProvider>
+          <Header variant="inner" />
+          {children}
+        </EnquiryProvider>
+      </body>
     </html>
   );
 }

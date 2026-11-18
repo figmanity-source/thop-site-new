@@ -43,6 +43,7 @@ export function SheetBand({
   lead,
   night = false,
   object,
+  headingVisual,
   children,
 }: {
   id?: string;
@@ -51,15 +52,17 @@ export function SheetBand({
   lead?: string;
   night?: boolean;
   object?: "dna" | "cell" | "twin";
+  headingVisual?: ReactNode;
   children?: ReactNode;
 }) {
   return (
     <section id={id} data-object={object} className={night ? "home-block sheet-band surface-night" : "home-block sheet-band"}>
       {night && <SectionTransition />}
       <div className="home-inner">
-        {(kicker || title) && <div className="sheet-band-heading">
+        {(kicker || title || headingVisual) && <div className="sheet-band-heading">
         {kicker ? <p className="home-kicker" data-reveal="">{kicker}</p> : null}
         {title ? <h2><BrandType text={title} /></h2> : null}
+        {headingVisual}
         </div>}
         <div className="sheet-band-content">
         {lead ? <p className="home-lead" data-reveal="">{lead}</p> : null}

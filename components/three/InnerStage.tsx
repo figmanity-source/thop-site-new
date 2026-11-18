@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useRef, type RefObject } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
@@ -72,6 +72,34 @@ function Helix({ root }: { root: RefObject<THREE.Group | null> }) {
         ))}
       </group>
     </group>
+  );
+}
+
+export function InlineHelix({ className = "sheet-inline-helix" }: { className?: string }) {
+  const root = useRef<THREE.Group>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const update = () => setVisible(desktop.matches);
+    update();
+    desktop.addEventListener("change", update);
+    return () => desktop.removeEventListener("change", update);
+  }, []);
+
+  return (
+    <div className={className} aria-hidden="true">
+      {visible && (
+        <Canvas dpr={[1, 1.75]} gl={{ antialias: true, alpha: true }} camera={{ position: [0, 0, 5.4], fov: 35 }}>
+          <ambientLight intensity={0.45} />
+          <directionalLight position={[3, 4, 5]} intensity={1.15} />
+          <Suspense fallback={null}>
+            <Studio />
+            <Helix root={root} />
+          </Suspense>
+        </Canvas>
+      )}
+    </div>
   );
 }
 

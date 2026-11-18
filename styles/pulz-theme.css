@@ -55,7 +55,7 @@
 .past-intro .cine-header-actions { gap: 10px; }
 .past-intro .cine-header .cine-button { border-radius: 50px; background: #161514; color: #f2f1ee; border-color: #161514; padding: 13px 20px; min-height: 44px; letter-spacing: var(--ls-button); font-family: var(--font-sans); font-size: var(--type-button); font-weight: 500; text-transform: uppercase; }
 .past-intro .cine-header .cine-button:hover { background: #4b4844; }
-.past-intro .cine-concierge { bottom: 106px; }
+.cinematic-home .cine-concierge { bottom: 106px; }
 /* Healthspan: dark opening statement and a broad comparative line study. */
 .cine-healthspan .cine-health-grid { grid-template-columns: 1.12fr .88fr; gap: 9%; min-height: 56svh; align-items: start; }
 .cine-healthspan .cine-health-grid h2 { font-weight: 300; margin: 0; font-size: var(--type-h2); line-height: var(--lh-h2); }
@@ -141,11 +141,19 @@
 .cine-faq summary { padding-block: 28px; gap: 24px; }
 .cine-faq summary i { color: #8a847e; }
 .cine-faq details p { max-width: 42ch; margin-bottom: 24px; padding-left: 0; line-height: 1.85; }
-.cine-footer-opening { max-width: 840px; text-align: center; margin-inline: auto; padding-block: 64px 100px; min-height: 0; }
+.cine-footer-intro { max-width: 1160px; margin-inline: auto; padding-block: 48px 80px; }
+.cine-footer-opening { max-width: 760px; min-width: 0; min-height: 0; padding: 0; text-align: left; }
+.cine-main > .cine-footer .cine-footer-opening .cine-section-top { margin-bottom: 24px; }
+.cine-main > .cine-footer .cine-footer-opening .cine-section-top > span { text-align: left; }
 .cine-footer-opening h2 { font-size: var(--type-h2); font-weight: 300; line-height: var(--lh-h2); }
-.cine-footer-opening .cine-lead { margin-inline: auto; }
-.cine-footer-opening::before { margin-inline: auto; }
-.cine-footer-opening .cine-actions { justify-content: center; }
+.cine-footer-opening .cine-lead { margin-inline: 0; }
+.cine-footer-opening::before { margin: 0 0 24px; }
+.cine-footer-opening .cine-actions { justify-content: flex-start; }
+.cine-footer-helix { display: none; }
+@media (min-width:768px) {
+  .cine-footer-intro { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); align-items: center; gap: clamp(24px, 4vw, 64px); }
+  .cine-footer-helix { display: block; min-width: 0; height: clamp(240px, 32vw, 420px); overflow: hidden; pointer-events: none; }
+}
 .cine-main > .cine-footer { padding-bottom: 120px; }
 .cine-footer-word { margin-top: 56px; color: #afaca8; }
 @media (max-width:1100px) and (min-width:768px) {
@@ -172,7 +180,7 @@
   .past-intro .cine-header nav.open { display: flex; }
   .past-intro .cine-header nav a { display: block; padding: 14px 12px; color: #161514; }
   .past-intro .cine-menu { display: flex; flex: none; }
-  .past-intro .cine-concierge { bottom: 94px; }
+  .cinematic-home .cine-concierge { bottom: 94px; }
   .cine-healthspan .cine-health-grid { grid-template-columns: 1fr; min-height: 0; gap: 32px; }
   .cine-healthspan .cine-health-grid h2 { font-size: var(--type-h2); font-weight: 300; line-height: var(--lh-h2); }
   .cine-healthspan .cine-life-chart { margin-top: 24px; }
@@ -209,7 +217,7 @@
   .cine-centre-grid img { height: 48svh; }
   .cine-faq-grid > h2 { margin-bottom: 40px; }
   .cine-faq summary { font-size: var(--type-h3); gap: 16px; font-weight: 500; }
-  .cine-footer-opening { padding-block: 16px 64px; }
+  .cine-footer-intro { padding-block: 16px 64px; }
   .cine-main > .cine-footer { padding-bottom: 108px; }
 }
 @media (prefers-reduced-motion:reduce) {

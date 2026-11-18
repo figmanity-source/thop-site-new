@@ -6,8 +6,6 @@ import Lenis from "lenis";
 import { brand, contact } from "@/lib/content";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { setLenis } from "@/lib/lenis";
-import Header from "./Header";
-import { EnquiryProvider } from "./Enquiry";
 import EnquireButton from "./EnquireButton";
 import StageMotion from "./StageMotion";
 import { FooterColumns, WhatsAppFloat } from "./SiteFooter";
@@ -46,13 +44,11 @@ export default function PageFrame({ children }: { children: ReactNode }) {
   }, [pathname]);
 
   return (
-    <EnquiryProvider>
-      <div className="inner-experience" ref={root}>
+    <div className="inner-experience" ref={root}>
       <a href="#inner-content" className="inner-skip">Skip to content</a>
       <div className="inner-progress" aria-hidden="true"><i /></div>
       {hasModels && <InnerStage />}
       <StageMotion />
-      <Header variant="inner" />
       <WhatsAppFloat />
       <main className="subpage" id="inner-content">{children}</main>
       <footer className="subpage-footer">
@@ -68,7 +64,6 @@ export default function PageFrame({ children }: { children: ReactNode }) {
         </div>
         <FooterColumns />
       </footer>
-      </div>
-    </EnquiryProvider>
+    </div>
   );
 }

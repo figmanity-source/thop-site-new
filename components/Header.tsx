@@ -91,7 +91,7 @@ export default function Header({ variant = "default" }: { variant?: "default" | 
       </Link>
       <nav id="site-navigation" className={open ? "open" : ""} aria-label="Main navigation">
         {links.map((item) => (
-          <Link key={item.href} href={item.href} onClick={close} aria-current={current(item.href) ? "page" : undefined}>{item.label}</Link>
+          <Link key={item.href} href={item.href === "/" && pathname === "/" && variant === "inner" ? "/#five-steps" : item.href} onClick={close} aria-current={current(item.href) ? "page" : undefined}>{item.label}</Link>
         ))}
       </nav>
       <div className="header-actions">
