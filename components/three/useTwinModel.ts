@@ -30,4 +30,3 @@ export function useTwinModel() {
   }, [scene]);
 }
 
-useGLTF.preload(URL, false);

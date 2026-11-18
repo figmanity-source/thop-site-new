@@ -32,7 +32,7 @@
 .cine-button:hover { background: #fff; box-shadow: none; }
 .cine-text-link { font-weight: 500; font-family: var(--font-sans); font-size: var(--type-button); letter-spacing: var(--ls-button); text-transform: uppercase; }
 
-/* Centre the artwork in the opening stage. The copy continues on the same surface. */
+/* The wordmark and helix share the opening stage above the hero copy. */
 .cine-hero {
   --hero-stage-max: 650px;
   --hero-footer-space: 120px;
@@ -42,18 +42,17 @@
 .cine-hero::before { background: linear-gradient(180deg, #fff0 58%, #d8d9d9aa); }
 .cine-hero-grid { opacity: .08; background-size: 160px 160px; mask-image: linear-gradient(transparent, #000); }
 .cine-hero > .cine-hero-stage {
-  display: grid; place-items: center;
-  z-index: auto;
+  display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: center;
+  z-index: var(--cine-content-layer);
   block-size: clamp(360px, 76svh, var(--hero-stage-max));
-  margin-inline: calc(-1 * var(--cine-gutter));
   pointer-events: none;
 }
 .cine-hero-word {
   position: relative; z-index: 0;
-  width: calc(100% - 70px);
-  font-size: clamp(100px, 18.8vw, 310px); font-weight: 500;
-  line-height: .9; letter-spacing: -.075em; color: #0b0b0b; text-align: center; pointer-events: none;
+  font-size: clamp(40px, 11vw, 235px); font-weight: 500;
+  line-height: .9; letter-spacing: -.075em; color: #0b0b0b; text-align: left; pointer-events: none;
 }
+.cine-hero-helix { min-width: 0; height: 84%; overflow: hidden; }
 .cine-hero > .cine-hero-coordinate {
   position: absolute; z-index: 2; top: 162px; left: var(--cine-gutter); right: var(--cine-gutter);
   display: flex; justify-content: space-between; font: 500 9px/1.8 var(--font-sans); letter-spacing: .16em;
@@ -156,7 +155,7 @@
   .cine-hero { --hero-stage-max: 680px; --hero-footer-space: 140px; min-height: 1160px; }
   .cine-hero > .cine-hero-coordinate { top: 116px; font-size: 7px; letter-spacing: .1em; }
   .cine-hero-coordinate > span:last-child { max-width: 120px; }
-  .cine-hero-word { z-index: var(--cine-content-layer); width: calc(100% - 20px); font-size: 18.6vw; letter-spacing: -.075em; font-weight: 500; }
+  .cine-hero-helix { height: min(64%, 44vw); }
   .cine-hero > .cine-hero-copy { width: 100%; }
   .cine-hero-copy::before {
     inset-inline-end: calc(-1 * var(--cine-gutter));

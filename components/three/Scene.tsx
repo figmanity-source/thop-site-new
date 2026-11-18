@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useEffect, type RefObject } from "react";
+import { Suspense, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Lightformer } from "@react-three/drei";
 import { scene } from "@/lib/scene";
@@ -47,11 +47,10 @@ function Pointer() {
   return null;
 }
 
-export default function Scene({ cinematic = false, paused = false, lightBackground = false, hero }: {
+export default function Scene({ cinematic = false, paused = false, lightBackground = false }: {
   cinematic?: boolean;
   paused?: boolean;
   lightBackground?: boolean;
-  hero?: RefObject<HTMLElement | null>;
 }) {
   return (
     <div id="canvas-wrapper" aria-hidden="true">
@@ -69,7 +68,7 @@ export default function Scene({ cinematic = false, paused = false, lightBackgrou
           <Particles dense={cinematic} paused={paused} />
           <DNA paused={paused} />
           <Cell paused={paused} />
-          <Twin hero={hero} />
+          {!cinematic && <Twin />}
           <Links />
           <Ready />
         </Suspense>

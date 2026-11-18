@@ -20,7 +20,7 @@ function Studio() {
   );
 }
 
-function Helix({ root }: { root: RefObject<THREE.Group | null> }) {
+function Helix({ root, paused = false }: { root: RefObject<THREE.Group | null>; paused?: boolean }) {
   const spin = useRef<THREE.Group>(null);
   const built = useMemo(() => {
     const strand = chrome();
@@ -58,7 +58,7 @@ function Helix({ root }: { root: RefObject<THREE.Group | null> }) {
   }, []);
 
   useFrame((_, dt) => {
-    if (spin.current && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) spin.current.rotation.y += dt * 0.28;
+    if (spin.current && !paused && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) spin.current.rotation.y += dt * 0.28;
   });
 
   return (
@@ -75,7 +75,11 @@ function Helix({ root }: { root: RefObject<THREE.Group | null> }) {
   );
 }
 
-export function InlineHelix({ className = "sheet-inline-helix" }: { className?: string }) {
+export function InlineHelix({ className = "sheet-inline-helix", showOnMobile = false, paused = false }: {
+  className?: string;
+  showOnMobile?: boolean;
+  paused?: boolean;
+}) {
   const root = useRef<THREE.Group>(null);
   const [visible, setVisible] = useState(false);
 
@@ -89,13 +93,13 @@ export function InlineHelix({ className = "sheet-inline-helix" }: { className?: 
 
   return (
     <div className={className} aria-hidden="true">
-      {visible && (
+      {(visible || showOnMobile) && (
         <Canvas dpr={[1, 1.75]} gl={{ antialias: true, alpha: true }} camera={{ position: [0, 0, 5.4], fov: 35 }}>
           <ambientLight intensity={0.45} />
           <directionalLight position={[3, 4, 5]} intensity={1.15} />
           <Suspense fallback={null}>
             <Studio />
-            <Helix root={root} />
+            <Helix root={root} paused={paused} />
           </Suspense>
         </Canvas>
       )}

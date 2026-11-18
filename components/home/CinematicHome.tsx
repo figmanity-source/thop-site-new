@@ -59,7 +59,6 @@ function Chapter({ id, number, label, title, lead, children, model, light = fals
 
 export default function CinematicHome() {
   const root = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
   const [chapter, setChapter] = useState("intro");
   const [zone, setZone] = useState(0);
   const [comparison, setComparison] = useState(0);
@@ -110,11 +109,8 @@ export default function CinematicHome() {
       if (built) return;
       built = true;
       context = gsap.context(() => {
-        const mobile = window.innerWidth < 768;
-        const initial = { x: 0, y: mobile ? -.35 : -.05, s: mobile ? 1.1 : 1.38 };
         gsap.set(scene.dna, { x: 1.35, y: .1, s: .82, z: 0, rx: .12, ry: 0, rz: -.22, o: 0 });
         gsap.set(scene.cell, { o: 0, s: .65, x: 1.5, y: 0, z: 0, rx: 0, ry: 0, rz: 0 });
-        gsap.set(scene.twin, { ...initial, o: 1, z: 0, rx: 0, ry: -.16, rz: 0 });
         gsap.set(scene, { explode: 0, focus: -1, particles: .025, links: 0, linksOffset: 0 });
 
         element.querySelectorAll<HTMLElement>("[data-cinema-model]").forEach((section) => {
@@ -125,19 +121,18 @@ export default function CinematicHome() {
             element.dataset.activeScene = identity;
             setLightStage(light);
             setChapter(identity);
-            const modelKeys: ModelKey[] = ["dna", "cell", "twin"];
+            const modelKeys: ModelKey[] = ["dna", "cell"];
             modelKeys.forEach((model) => gsap.to(scene[model], { o: model === key ? 1 : 0, duration: media.matches ? 0 : .85, overwrite: "auto" }));
-            if (key === "dna" || key === "cell" || key === "twin") {
+            if (key === "dna" || key === "cell") {
               const compact = window.innerWidth < 768;
               gsap.to(scene[key], {
-                x: section.id === "intro" ? 0 : compact ? 0 : 1.4,
-                y: section.id === "intro" ? (compact ? -.35 : -.05) : compact ? 0 : key === "twin" ? -.1 : .05,
-                s: section.id === "intro" ? (compact ? 1.1 : 1.38) : compact ? .58 : key === "twin" ? 1.05 : key === "cell" ? .82 : .7,
-                ...(section.id === "intro" ? { ry: -.16 } : {}),
+                x: compact ? 0 : 1.4,
+                y: compact ? 0 : .05,
+                s: compact ? .58 : key === "cell" ? .82 : .7,
                 rz: key === "dna" ? -.2 : 0, rx: key === "dna" ? .12 : 0,
                 duration: media.matches ? 0 : 1.4, ease: "power3.inOut", overwrite: "auto",
               });
-              if (!media.matches && section.id !== "intro") gsap.to(scene[key], { ry: "+=1.2", duration: 1.8, ease: "power2.inOut" });
+              if (!media.matches) gsap.to(scene[key], { ry: "+=1.2", duration: 1.8, ease: "power2.inOut" });
             }
             gsap.to(scene, { particles: section.id === "intro" ? (light ? .025 : .16) : key === "none" ? 0 : light ? .012 : .045, links: 0, duration: media.matches ? 0 : 1.2, overwrite: "auto" });
           };
@@ -177,13 +172,14 @@ export default function CinematicHome() {
     <div className="cinematic-home" ref={root}>
       <a className="cine-skip" href="#home-content">Skip to content</a>
       <Loader />
-      <Scene cinematic paused={paused || reduce} lightBackground={lightStage} hero={heroRef} />
+      <Scene cinematic paused={paused || reduce} lightBackground={lightStage} />
       <div className="cine-progress" aria-hidden="true"><div className="cine-progress-fill" /></div>
       <main id="home-content" className="cine-main">
-        <section className="cine-hero cine-section cine-light" id="intro" data-cinema-model="twin">
+        <section className="cine-hero cine-section cine-light" id="intro" data-cinema-model="none">
           <div className="cine-hero-grid" aria-hidden="true" />
-          <div className="cine-hero-stage" ref={heroRef} aria-hidden="true">
+          <div className="cine-hero-stage" aria-hidden="true">
             <div className="cine-hero-word">BIOVITY</div>
+            <InlineHelix className="cine-hero-helix" showOnMobile paused={paused || reduce} />
           </div>
           <div className="cine-hero-copy">
             <p className="cine-label"><span className="cine-live-dot" />{heroSlides[0].tag}</p>
@@ -225,7 +221,7 @@ export default function CinematicHome() {
           <p className="cine-footnote" data-cine-reveal>{blueprint.smallPrint}</p>
         </Chapter>
 
-        <Chapter id="twin" label="Your dashboard" title={twin.title} lead={twin.dashboard} model="twin" className="cine-twin">
+        <Chapter id="twin" label="Your dashboard" title={twin.title} lead={twin.dashboard} className="cine-twin">
           <div className="cine-copy-panel" data-cine-reveal><p className="cine-label">YOUR TWIN</p><p>{twin.twin}</p><div className="cine-zone-tabs" role="group" aria-label="Sample body zones">{biology.zones.map((name, index) => <button key={name} aria-pressed={zone === index} onClick={() => setZone(index)}>{name}<span aria-hidden="true">+</span></button>)}</div><p className="cine-sample" aria-live="polite">{twin.sample} — {biology.zones[zone]}</p><p className="cine-label">YOUR REVEAL</p><p>{twin.reveal}</p><Action interest="BIOBLUEPRINT">{twin.cta}</Action></div>
         </Chapter>
 
@@ -248,7 +244,6 @@ export default function CinematicHome() {
 
         <Chapter id="continuum" number="05" label={continuum.eyebrow} title={continuum.title} lead={continuum.body} model="dna" light className="cine-continuum">
           <div className="cine-copy-panel" data-cine-reveal><p className="cine-label">IT CAN INCLUDE</p><ul className="cine-membership-list">{continuum.items.map((item, index) => <li key={item}><span><TabularDigits value={String(index + 1).padStart(2, "0")} /></span>{item}</li>)}</ul><p>{continuum.welcome}</p><p className="cine-footnote">{continuum.note}</p><Action interest="CONTINUUM">{continuum.cta}</Action></div>
-          <div className="cine-gallery" data-cine-reveal>{continuum.images.map((src, index) => <figure key={src}><img src={src} alt={`THOP visual ${index + 1}`} loading="lazy" /></figure>)}</div>
         </Chapter>
 
         <section id="biology" className="cine-section cine-dashboard" data-cinema-model="none">
