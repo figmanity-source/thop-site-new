@@ -8,7 +8,7 @@
 .cine-life-chart .life-bar-1 { background: #161514; }
 .cine-why { position: relative; min-height: 85svh; padding-top: 100px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 8%; align-content: center; }
 .cine-why > :not(svg) { grid-column: 1; position: relative; }
-.cine-why h3 { font-size: var(--type-h2); font-weight: 300; line-height: 1.2; }
+.cine-why h3 { font-size: var(--type-h3); font-weight: 500; line-height: 1.2; }
 .cine-why-network { --draw: 1; position: absolute; width: 48%; height: auto; right: -2%; top: 25%; stroke: #8a847e; stroke-width: 1; }
 .cine-why-network path { stroke-dasharray: 1500; stroke-dashoffset: calc(1500 * (1 - var(--draw))); }
 .cine-why-network circle { stroke-width: 2; fill: #d6d4d0; transform-box: fill-box; transform-origin: center; transform: scale(var(--draw)); }
@@ -16,14 +16,14 @@
 .cine-protocol .cine-narrow { max-width: 52%; padding-block: 40px 72px; }
 .cine-protocol .cine-stage-list { max-width: 52%; margin-top: 32px; position: relative; }
 .cine-protocol .cine-stage-list > a { min-height: 38svh; grid-template-columns: 40px 1fr 22px; gap: 24px; align-content: center; }
-.cine-protocol .cine-stage-description { grid-column: 2; max-width: 33ch; font-size: var(--type-body); }
+.cine-protocol .cine-stage-description { grid-column: 2; max-width: 33ch; font-size: var(--type-body); font-weight: 400; }
 .cine-protocol .cine-stage-list > a > svg { grid-row: 1/3; grid-column: 3; }
 .cine-protocol .cine-stage-index { font-size: var(--type-h3); font-weight: 300; }
 :is(.cine-discover,.cine-blueprint,.cine-twin,.cine-dox,.cine-cellution,.cine-continuum) .cine-heading { min-height: max(560px, 72svh); padding-top: 48px; }
 .cine-blueprint .cine-test-grid { margin-top: 0; background: transparent; }
 .cine-blueprint .cine-test-card { min-height: 85svh; max-width: 47%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 24px; border: 0; background: var(--architectural-surface); position: relative; }
 .cine-blueprint .cine-test-card .cine-label { margin: 0; }
-.cine-blueprint .cine-test-card h3 { font-size: var(--type-h2); font-weight: 300; }
+.cine-blueprint .cine-test-card h3 { font-size: var(--type-h3); font-weight: 500; }
 .cine-blueprint .cine-test-card > p:last-child { max-width: 42ch; }
 .cine-blueprint .cine-footnote { position: relative; background: var(--architectural-surface); padding-block: 32px; }
 .cine-twin .cine-heading { min-height: 82svh; }
@@ -44,14 +44,14 @@
 .cine-dashboard .cine-data-row:hover { color: #f2f1ee; padding-left: 8px; }
 .cine-founder-art { display: none; }
 .cine-founder-grid { display: block; max-width: 900px; margin-left: auto; padding-block: 56px 72px; }
-.cine-founder-grid h2 { font-size: var(--type-h1); max-width: 18ch; }
+.cine-founder-grid h2 { font-size: var(--type-h2); max-width: 18ch; font-weight: 300; line-height: var(--lh-h2); }
 .cine-founder-grid p:not(.cine-label) { max-width: 59ch; }
 .cine-founder-name { margin-top: 40px; }
 .cine-team { margin-top: 32px; }
 .cine-centre { min-height: 100svh; }
 .cine-centre-grid { display: block; position: relative; padding-top: 48px; }
 .cine-centre-grid > div { max-width: 660px; position: relative; margin-bottom: 56px; }
-.cine-centre-grid h2 { font-size: var(--type-h1); }
+.cine-centre-grid h2 { font-size: var(--type-h2); font-weight: 300; line-height: var(--lh-h2); }
 .cine-centre-grid figure { width: 100%; min-height: 0; }
 .cine-centre-grid img { aspect-ratio: 21/9; max-height: 70svh; object-fit: cover; }
 .cine-faq details::details-content { transition: height .4s, opacity .4s; }
@@ -59,10 +59,10 @@
 .cine-faq details[open] summary i { transform: rotate(45deg); }
 .cine-footer-opening { padding-block: 64px 100px; min-height: 65svh; position: relative; }
 .cine-footer-opening::before { content: ''; display: block; width: 120px; height: 1px; background: #f3dcc0; margin-bottom: 56px; }
-.cine-footer-opening h2 { font-size: var(--type-h1); }
+.cine-footer-opening h2 { font-size: var(--type-h2); font-weight: 300; line-height: var(--lh-h2); }
 @media (max-width:1100px) and (min-width:768px) {
   .cine-protocol .cine-narrow,.cine-protocol .cine-stage-list { max-width: 56%; }
-  .cine-protocol .cine-stage-title { font-size: var(--type-h3); }
+  .cine-protocol .cine-stage-title { font-size: var(--type-h3); font-weight: 500; }
   .cine-protocol .cine-stage-list > a { gap: 16px; }
 }
 @media (max-width:767px) {
@@ -81,7 +81,7 @@
   .cine-process-list li { grid-template-columns: 44px 1fr; gap: 24px; padding-block: 32px; }
   .cine-process-list li > span { font-size: var(--type-h2); }
   .cine-founder-grid { padding-block: 16px 32px; }
-  .cine-founder-grid h2,.cine-centre-grid h2 { font-size: var(--type-h2); }
+  .cine-founder-grid h2,.cine-centre-grid h2 { font-size: var(--type-h2); font-weight: 300; line-height: var(--lh-h2); }
   .cine-dashboard-grid article { min-height: 0; padding-top: 32px; }
   .cine-centre-grid { padding-top: 0; }
   .cine-centre-grid img { aspect-ratio: 4/3; }

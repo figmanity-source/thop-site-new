@@ -101,11 +101,11 @@
 .enquiry-note,
 .enquiry-status,
 .enquiry-error,
-.enquiry-panel input,
-.enquiry-panel select,
-.enquiry-panel textarea,
-.enquiry-panel .enquiry-choice,
-.enquiry-panel .enquiry-check,
+.enquiry-form input,
+.enquiry-form select,
+.enquiry-form textarea,
+.enquiry-form .enquiry-choice,
+.enquiry-form .enquiry-check,
 [data-section=Disassembly] [data-mesh] .body-text,
 [data-section=Disassembly] .discover-extra ul,
 .single-part-section .fps-single-part-section-wrapper .fps-single-part-section-text,
@@ -153,8 +153,8 @@
 .founder-portrait span,
 .biology-compare strong,
 .sheet-text-link,
-.enquiry-panel label,
-.enquiry-panel legend,
+.enquiry-form label,
+.enquiry-form legend,
 .pathway-grid a span,
 .sheet-steps span,
 .footer-meta nav a,
@@ -192,8 +192,8 @@
   background: none;
 }
 
-.enquiry-panel .enquiry-choice,
-.enquiry-panel .enquiry-check {
+.enquiry-form .enquiry-choice,
+.enquiry-form .enquiry-check {
   font-size: var(--type-body);
   letter-spacing: normal;
   text-transform: none;
@@ -233,4 +233,74 @@
     font-size: var(--type-h1);
     line-height: 1.15;
   }
+}
+
+/* Shared wrapping measures for body copy and typography-driven layout. */
+:root {
+  --body-measure: 42ch;
+}
+
+.cinematic-home .cine-main :is(p, .cine-stage-description, .cine-check-list, .cine-membership-list),
+.inner-experience .sheet-band :is(p, .sheet-points li, .sheet-steps p) {
+  max-inline-size: var(--body-measure);
+}
+
+.cinematic-home .cine-main :is(h1, h2, h3, p, button, .cine-text-link),
+.inner-experience :is(h1, h2, h3, p, .pill, .sheet-text-link) {
+  overflow-wrap: anywhere;
+}
+
+.cinematic-home .cine-numeral,
+.cinematic-home :is(.cine-stage-index, .cine-chapter-number, .cine-test-card-top > span,
+  .cine-process-list li > span, .cine-membership-list li > span, .cine-faq summary > span),
+.inner-experience .sheet-steps li > span {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+}
+
+.cine-comparison-select {
+  font: 500 var(--type-button)/1.4 var(--font-sans);
+  letter-spacing: var(--ls-button);
+  text-transform: uppercase;
+}
+
+.cinematic-home .cine-main :is(.footer-columns p.footer-disclaimer, .cine-faq details p) {
+  font-size: var(--type-body);
+  font-weight: 400;
+}
+
+.enquiry-form :is(input, select, textarea) {
+  min-inline-size: 0;
+}
+
+.enquiry-form label {
+  text-align: start;
+}
+
+@media (max-width: 767px) {
+  .cinematic-home .cine-header .cine-button {
+    white-space: normal;
+    min-width: 0;
+    max-width: 11.5em;
+    padding-inline: 10px;
+  }
+
+  .cinematic-home .cine-header-actions {
+    min-width: 0;
+  }
+}
+
+.cinematic-home .footer-columns :is(a, .footer-col-label),
+.inner-experience .footer-columns :is(a, .footer-col-label) {
+  font-size: var(--type-label);
+  font-weight: 400;
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.cinematic-home .footer-disclaimer,
+.inner-experience .footer-disclaimer {
+  max-inline-size: var(--body-measure);
 }

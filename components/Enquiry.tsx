@@ -48,7 +48,7 @@ export function EnquiryForm({ interest, submitLabel }: { interest: Interest; sub
   };
 
   return (
-    <form onSubmit={submit} noValidate>
+    <form className="enquiry-form" onSubmit={submit} noValidate>
       <label>Full name<input name="name" autoComplete="name" aria-invalid={!!errors.name} />{errors.name && <span className="enquiry-error">{errors.name}</span>}</label>
       <label>Mobile number (with country code)<input name="mobile" type="tel" autoComplete="tel" aria-invalid={!!errors.mobile} />{errors.mobile && <span className="enquiry-error">{errors.mobile}</span>}</label>
       <label>Email<input name="email" type="email" autoComplete="email" aria-invalid={!!errors.email} />{errors.email && <span className="enquiry-error">{errors.email}</span>}</label>

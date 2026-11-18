@@ -43,7 +43,7 @@ function Chapter({ id, number, label, title, lead, children, model, light = fals
   return (
     <section id={id} data-cinema-model={model ?? "none"} className={`cine-section ${light ? "cine-light" : ""} ${className}`}>
       {["discover", "dox"].includes(id) && <SectionTransition />}
-      <div className="cine-section-top"><span>{label}</span>{number && <span>{number}</span>}</div>
+      <div className="cine-section-top"><span><BrandType text={label} /></span>{number && <span className="cine-numeral">{number}</span>}</div>
       <div className="cine-section-body">
         <div className="cine-heading" data-cine-reveal>
           {number && <span className="cine-chapter-number" aria-hidden="true">{number}</span>}
@@ -214,7 +214,7 @@ function Home() {
         </section>
 
         <div className="cine-model-index" aria-label="The five THOP steps">
-          {heroFilmCaptions.map((caption, index) => <a href={`#${stages[index]}`} key={caption.name}><span>{String(index + 1).padStart(2, "0")} {caption.name}</span><strong>{caption.line}</strong><Arrow /></a>)}
+          {heroFilmCaptions.map((caption, index) => <a href={`#${stages[index]}`} key={caption.name}><span><span className="cine-numeral">{String(index + 1).padStart(2, "0")}</span> {caption.name}</span><strong>{caption.line}</strong><Arrow /></a>)}
         </div>
 
         <section id="healthspan" className="cine-section cine-healthspan" data-cinema-model="none">
@@ -269,7 +269,7 @@ function Home() {
 
         <section id="biology" className="cine-section cine-dashboard" data-cinema-model="none">
           <div className="cine-section-top"><span>{biology.sample}</span></div><div className="cine-narrow" data-cine-reveal><h2>{biology.headline}</h2><p className="cine-lead">{biology.body}</p></div>
-          <div className="cine-dashboard-grid">{[biology.start, biology.later].map((label, index) => <article key={label} data-selected={comparison === index} data-cine-reveal><button type="button" className="cine-label cine-comparison-select" aria-pressed={comparison === index} onClick={() => setComparison(index)}>{label}</button><div className="cine-dashboard-orbit" aria-hidden="true"><span /><i /><i /></div>{biology.zones.map((name) => <div className="cine-data-row" key={name}><span>{name}</span><small>{twin.sample}</small></div>)}</article>)}</div><p className="cine-footnote">{biology.sample}</p>
+          <div className="cine-dashboard-grid">{[biology.start, biology.later].map((label, index) => <article key={label} data-selected={comparison === index} data-cine-reveal><button type="button" className="cine-comparison-select" aria-pressed={comparison === index} onClick={() => setComparison(index)}>{label}</button><div className="cine-dashboard-orbit" aria-hidden="true"><span /><i /><i /></div>{biology.zones.map((name) => <div className="cine-data-row" key={name}><span>{name}</span><small>{twin.sample}</small></div>)}</article>)}</div><p className="cine-footnote">{biology.sample}</p>
         </section>
 
 

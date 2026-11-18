@@ -486,7 +486,7 @@ b { font-weight: 400; color: inherit; }
 .faq-item h3 { margin: 0; font-weight: 400; }
 .faq-item button { width: 100%; text-align: left; padding: 18px 0; font-family:var(--font-sans);font-weight:500; font-size: clamp(18px, 1.6vw, 24px); line-height: 1.25; }
 .faq-item button:focus-visible { outline: 1px solid #161514; outline-offset: 4px; }
-.faq-item p { padding: 0 0 18px; max-width: 68ch; line-height: 1.6; color: #2b2927; font-size: 16px; }
+.faq-item p { padding: 0 0 18px; max-width: 42ch; line-height: 1.6; color: #2b2927; font-size: 16px; }
 [data-section=Disassembly] [data-mesh] { top: 0 !important; right: auto !important; bottom: 0 !important; left: 0 !important; width: max(300px, min(680px, calc(50vw - 36vh - 20px))) !important; height: auto !important; max-width: none !important; margin: 0 !important; padding: 88px 8px 72px max(32px, 2.6vw) !important; box-sizing: border-box !important; align-items: center !important; justify-content: flex-start !important; pointer-events: none; overflow: visible; }
 [data-section=Disassembly] [data-mesh] .content { max-width: 100% !important; width: 100%; margin: 0 !important; pointer-events: auto; }
 [data-section=Disassembly] [data-mesh] .mesh-title,
@@ -533,16 +533,16 @@ b { font-weight: 400; color: inherit; }
 .enquiry-body, .enquiry-note, .enquiry-status { font-size: 14px; line-height: 1.5; margin-top: 12px; }
 .enquiry-note, .enquiry-status { color: #4b4844; }
 .enquiry-close { float: right; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
-.enquiry-panel form { display: grid; gap: 12px; margin-top: 18px; clear: both; }
-.enquiry-panel label, .enquiry-panel legend { display: grid; gap: 6px; font-size: var(--type-label); letter-spacing: .06em; text-transform: uppercase; }
-.enquiry-panel input, .enquiry-panel select, .enquiry-panel textarea { border: 1px solid #16151433; background: #fff; color: #161514; font-family:var(--font-sans); font-size: 15px; letter-spacing: 0; text-transform: none; padding: 10px 12px; width: 100%; box-sizing: border-box; }
-.enquiry-panel fieldset { border: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.enquiry-form { display: grid; gap: 12px; margin-top: 18px; clear: both; }
+.enquiry-form label, .enquiry-form legend { display: grid; gap: 6px; font-size: var(--type-label); letter-spacing: .06em; text-transform: uppercase; }
+.enquiry-form input, .enquiry-form select, .enquiry-form textarea { border: 1px solid #16151433; background: #fff; color: #161514; font-family:var(--font-sans); font-size: 15px; letter-spacing: 0; text-transform: none; padding: 10px 12px; width: 100%; box-sizing: border-box; }
+.enquiry-form fieldset { border: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; }
 .enquiry-choice { display: flex; flex-direction: row; align-items: center; gap: 8px; text-transform: none; letter-spacing: 0; font-size: 14px; }
 .enquiry-choice input { width: auto; }
 .enquiry-check { display: flex; flex-direction: row; align-items: flex-start; gap: 10px; text-transform: none; letter-spacing: 0; font-size: 14px; line-height: 1.4; }
 .enquiry-check input { width: auto; margin-top: 3px; }
 .enquiry-error { color: #6b3a32; font-size: 12px; letter-spacing: 0; text-transform: none; }
-.enquiry-panel input:focus-visible, .enquiry-panel select:focus-visible, .enquiry-panel textarea:focus-visible, .enquiry-close:focus-visible { outline: 1px solid #161514; outline-offset: 2px; }
+.enquiry-form input:focus-visible, .enquiry-form select:focus-visible, .enquiry-form textarea:focus-visible, .enquiry-close:focus-visible { outline: 1px solid #161514; outline-offset: 2px; }
 @media (max-width: 800px) {
   .biology-compare, .founder-grid, .team-slot div, .footer-pending div { grid-template-columns: 1fr; }
   .founder-portrait { min-height: 220px; }
