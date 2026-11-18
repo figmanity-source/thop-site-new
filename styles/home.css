@@ -10,8 +10,32 @@
 }
 .cinematic-home *, .cinematic-home *::before, .cinematic-home *::after { box-sizing: border-box; user-select: auto; }
 .cinematic-home #canvas-wrapper { z-index: var(--cine-model-layer); }
-.cinematic-home #loader { background: var(--cine-bg); color: var(--cine-ink); }
-.cinematic-home .ld-bar i { background: var(--cine-accent); }
+.cinematic-home #loader { background: #e5e5e2; color: #161514; }
+.cinematic-home .ld-lockup {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: min(76vw, 520px);
+  height: clamp(116px, 20svh, 194px);
+  margin: auto;
+}
+.cinematic-home .ld-frame { position: absolute; inset: 0; border: 1px solid #16151470; }
+.cinematic-home .ld-lockup .ld-word { width: auto; justify-content: center; line-height: .95; }
+.cinematic-home .ld-letter i { font-size: clamp(34px, 9vw, 96px); font-weight: 500; letter-spacing: -.065em; }
+.cinematic-home .ld-marker {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: linear-gradient(currentColor,currentColor) center / 1px 100% no-repeat,
+    linear-gradient(currentColor,currentColor) center / 100% 1px no-repeat;
+}
+.cinematic-home .ld-marker-top-left { top: -6px; left: -6px; }
+.cinematic-home .ld-marker-top-right { top: -6px; right: -6px; }
+.cinematic-home .ld-marker-bottom-left { bottom: -6px; left: -6px; }
+.cinematic-home .ld-marker-bottom-right { bottom: -6px; right: -6px; }
+.cinematic-home .ld-bar { background: #16151420; }
+.cinematic-home .ld-bar i { background: #161514; }
 .cine-main { display: block; }
 .cinematic-home :is(a,button):focus-visible { outline: 2px solid var(--cine-accent); outline-offset: 6px; }
 .cine-light :is(a,button):focus-visible { outline-color: #3e5948; }

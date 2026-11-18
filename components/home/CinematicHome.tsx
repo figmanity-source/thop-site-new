@@ -178,7 +178,7 @@ export default function CinematicHome() {
   return (
     <div className="cinematic-home" ref={root}>
       <a className="cine-skip" href="#home-content">Skip to content</a>
-      <Loader />
+      <Loader cinematic />
       <Scene cinematic paused={paused || reduce} lightBackground={lightStage} />
       <div className="cine-progress" aria-hidden="true"><div className="cine-progress-fill" /></div>
       <main id="home-content" className="cine-main">
