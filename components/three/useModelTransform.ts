@@ -1,4 +1,4 @@
-import { useFrame } from "@react-three/fiber";
+import { useFrame, type RootState } from "@react-three/fiber";
 import type { RefObject } from "react";
 import * as THREE from "three";
 import { scene, type ModelKey } from "@/lib/scene";
@@ -17,6 +17,7 @@ export function useModelTransform(
   key: ModelKey,
   ref: RefObject<THREE.Group | null>,
   idle?: (g: THREE.Group, t: number, dt: number) => void,
+  frame?: (g: THREE.Group, state: RootState) => void,
 ) {
   useFrame((state, dt) => {
     const g = ref.current;
@@ -34,14 +35,14 @@ export function useModelTransform(
     const sFit = aspect < 0.7 ? 0.68 : aspect < 1 ? 0.8 : aspect < 1.25 ? 0.92 : 1;
     g.position.set(st.x * xFit + scene.pointer.x * 0.06 * xFit, st.y + scene.pointer.y * 0.04, st.z);
     g.rotation.set(st.rx, st.ry, st.rz);
-    const scale = Math.max(0.0001, st.s * sFit * (0.6 + 0.4 * ease));
-    g.scale.setScalar(scale);
+    g.scale.setScalar(Math.max(0.0001, st.s * sFit * (0.6 + 0.4 * ease)));
+    frame?.(g, state);
     // Dull the model while it crosses a heading, so the type stays readable.
     const rz = Math.abs(g.rotation.z % Math.PI);
     const c = Math.abs(Math.cos(rz));
     const sn = Math.abs(Math.sin(rz));
-    const hw = (0.72 * c + 1.5 * sn) * scale;
-    const hh = (1.5 * c + 0.72 * sn) * scale;
+    const hw = (0.72 * c + 1.5 * sn) * g.scale.x;
+    const hh = (1.5 * c + 0.72 * sn) * g.scale.y;
     g.getWorldPosition(center);
     edgeX.copy(center).x += hw;
     edgeY.copy(center).y += hh;

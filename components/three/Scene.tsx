@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, type RefObject } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Lightformer } from "@react-three/drei";
 import { scene } from "@/lib/scene";
@@ -47,14 +47,19 @@ function Pointer() {
   return null;
 }
 
-export default function Scene({ cinematic = false, paused = false, lightBackground = false }: { cinematic?: boolean; paused?: boolean; lightBackground?: boolean }) {
+export default function Scene({ cinematic = false, paused = false, lightBackground = false, hero }: {
+  cinematic?: boolean;
+  paused?: boolean;
+  lightBackground?: boolean;
+  hero?: RefObject<HTMLElement | null>;
+}) {
   return (
-    <div id="canvas-wrapper">
+    <div id="canvas-wrapper" aria-hidden="true">
       <Canvas
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         camera={{ position: [0, 0, 6], fov: 35, near: 0.1, far: 50 }}
-        style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh" }}
+        style={{ width: "100%", height: "100%" }}
       >
         <ambientLight intensity={0.4} />
         <directionalLight position={[3, 4, 5]} intensity={1.2} />
@@ -64,7 +69,7 @@ export default function Scene({ cinematic = false, paused = false, lightBackgrou
           <Particles dense={cinematic} paused={paused} />
           <DNA paused={paused} />
           <Cell paused={paused} />
-          <Twin />
+          <Twin hero={hero} />
           <Links />
           <Ready />
         </Suspense>

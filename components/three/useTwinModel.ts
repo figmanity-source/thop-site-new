@@ -19,10 +19,13 @@ export function useTwinModel() {
     });
     model.updateMatrixWorld(true);
     const box = new THREE.Box3().setFromObject(model);
+    const size = box.getSize(new THREE.Vector3());
+    const scale = 2.1 / Math.max(size.y, 0.0001);
     return {
       model,
       offset: box.getCenter(new THREE.Vector3()).multiplyScalar(-1),
-      scale: 2.1 / Math.max(box.getSize(new THREE.Vector3()).y, 0.0001),
+      scale,
+      size: size.multiplyScalar(scale),
     };
   }, [scene]);
 }

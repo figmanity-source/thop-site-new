@@ -32,16 +32,26 @@
 .cine-button:hover { background: #fff; box-shadow: none; }
 .cine-text-link { font-weight: 500; font-family: var(--font-sans); font-size: var(--type-button); letter-spacing: var(--ls-button); text-transform: uppercase; }
 
-/* Hero: graphic title behind a central sculpture, with readable corner copy. */
+/* Centre the artwork in the opening stage. The copy continues on the same surface. */
 .cine-hero {
-  min-height: max(1040px, 100svh); padding-top: 0;
+  --hero-stage-max: 650px;
+  --hero-footer-space: 120px;
+  min-height: max(1040px, 100svh); padding-block: 0;
   background: radial-gradient(ellipse at 50% 30%, #f5f5f3 0%, #dedfdf 50%, #c4c7c9 100%);
 }
 .cine-hero::before { background: linear-gradient(180deg, #fff0 58%, #d8d9d9aa); }
 .cine-hero-grid { opacity: .08; background-size: 160px 160px; mask-image: linear-gradient(transparent, #000); }
-.cine-hero > .cine-hero-word {
-  position: absolute; z-index: 0; left: 50%; top: 28%; transform: translateX(-50%);
-  width: calc(100% - 70px); font-size: clamp(100px, 18.8vw, 310px); font-weight: 500;
+.cine-hero > .cine-hero-stage {
+  display: grid; place-items: center;
+  z-index: auto;
+  block-size: clamp(360px, 76svh, var(--hero-stage-max));
+  margin-inline: calc(-1 * var(--cine-gutter));
+  pointer-events: none;
+}
+.cine-hero-word {
+  position: relative; z-index: 0;
+  width: calc(100% - 70px);
+  font-size: clamp(100px, 18.8vw, 310px); font-weight: 500;
   line-height: .9; letter-spacing: -.075em; color: #0b0b0b; text-align: center; pointer-events: none;
 }
 .cine-hero > .cine-hero-coordinate {
@@ -50,14 +60,14 @@
 }
 .cine-hero-coordinate > span:last-child { text-align: right; }
 .cine-hero > .cine-hero-copy {
-  --hero-copy-offset: 650px;
-  position: relative; z-index: 2; width: min(660px, 65%); padding-top: var(--hero-copy-offset);
+  position: relative; z-index: var(--cine-content-layer);
+  width: min(660px, 65%); padding-bottom: var(--hero-footer-space);
 }
 .cine-hero-copy::before {
   content: "";
   position: absolute;
   z-index: -1;
-  inset: calc(var(--hero-copy-offset) - 24px) -42px -24px calc(-1 * var(--cine-gutter));
+  inset: -24px -42px calc(var(--hero-footer-space) - 24px) calc(-1 * var(--cine-gutter));
   background: linear-gradient(90deg, #e4e5e5f5 0 78%, #e4e5e500);
   mask-image: linear-gradient(transparent, #000 24px calc(100% - 24px), transparent);
   pointer-events: none;
@@ -83,8 +93,8 @@
 .cine-scroll-line { background: linear-gradient(#111, transparent); }
 
 /* A black index band echoes the machinery-category strip in the reference. */
-.cine-model-index { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); padding: 0 var(--cine-gutter); background: #101010; color: #f2f2ef; }
-.cine-model-index > a { display: grid; grid-template-columns: 1fr 24px; padding: 34px 28px; border-right: 1px solid #ffffff26; gap: 18px; }
+.cine-model-index { position: relative; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); padding: 0 var(--cine-gutter); background: #101010; color: #f2f2ef; }
+.cine-model-index > a { position: relative; z-index: var(--cine-content-layer); display: grid; grid-template-columns: 1fr 24px; padding: 34px 28px; border-right: 1px solid #ffffff26; gap: 18px; }
 .cine-model-index > a:first-child { padding-left: 0; }
 .cine-model-index > a:last-child { border-right: 0; }
 .cine-model-index > a > span { font-size: var(--type-label); letter-spacing: var(--ls-nav); color: #a1a1a1; grid-column: 1/-1; font-weight: 400; text-transform: uppercase; }
@@ -129,13 +139,13 @@
 @media (max-width: 1279px) {
   .cine-header nav { background: #e7e7e4fc; }
   .cine-header.on-dark nav { background: #101010fc; }
-  .cine-hero { min-height: 1100px; }
-  .cine-hero > .cine-hero-copy { --hero-copy-offset: 640px; width: 65%; }
-  .cine-hero > .cine-hero-word { top: 30%; }
+  .cine-hero { --hero-stage-max: 640px; min-height: 1100px; }
+  .cine-hero > .cine-hero-copy { width: 65%; }
   .cine-model-index strong { font-size: 19px; }
 }
 @media (max-width: 900px) and (min-width: 768px) {
-  .cine-hero > .cine-hero-copy { --hero-copy-offset: 620px; width: 72%; }
+  .cine-hero { --hero-stage-max: 620px; }
+  .cine-hero > .cine-hero-copy { width: 72%; }
   .cine-hero h1 { font-size: var(--type-display); font-weight: 300; letter-spacing: var(--ls-display); text-transform: none; }
   .cine-hero > .cine-specimen-label { bottom: 174px; max-width: 160px; }
   .cine-model-index > a { padding-inline: 18px; }
@@ -143,11 +153,11 @@
 }
 @media (max-width: 767px) {
   .cine-header .cine-brand small { font-size: 5px; }
-  .cine-hero { min-height: 1160px; padding-top: 0; padding-bottom: 140px; }
+  .cine-hero { --hero-stage-max: 680px; --hero-footer-space: 140px; min-height: 1160px; }
   .cine-hero > .cine-hero-coordinate { top: 116px; font-size: 7px; letter-spacing: .1em; }
   .cine-hero-coordinate > span:last-child { max-width: 120px; }
-  .cine-hero > .cine-hero-word { top: 275px; width: calc(100% - 20px); font-size: 18.6vw; letter-spacing: -.075em; font-weight: 500; }
-  .cine-hero > .cine-hero-copy { --hero-copy-offset: 680px; width: 100%; }
+  .cine-hero-word { z-index: var(--cine-content-layer); width: calc(100% - 20px); font-size: 18.6vw; letter-spacing: -.075em; font-weight: 500; }
+  .cine-hero > .cine-hero-copy { width: 100%; }
   .cine-hero-copy::before {
     inset-inline-end: calc(-1 * var(--cine-gutter));
     background: #e4e5e5ed;

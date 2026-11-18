@@ -62,6 +62,7 @@ function Home() {
   const headerReady = useHeaderEntrance(true);
   const headerRef = useRef<HTMLElement>(null);
   const root = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const [menu, setMenu] = useState(false);
   const [chapter, setChapter] = useState("intro");
   const headerDocked = useHeaderDock(headerRef, chapter !== "intro", headerReady);
@@ -188,7 +189,7 @@ function Home() {
     <div className={`cinematic-home${headerDocked ? " past-intro" : ""}`} ref={root}>
       <a className="cine-skip" href="#home-content">Skip to content</a>
       <Loader />
-      <Scene cinematic paused={paused || reduce} lightBackground={lightStage} />
+      <Scene cinematic paused={paused || reduce} lightBackground={lightStage} hero={heroRef} />
       <div className="cine-progress" aria-hidden="true"><div className="cine-progress-fill" /></div>
       <header ref={headerRef} data-animated-header="" data-header-ready={headerReady} className={`cine-header ${menu ? "is-open" : ""}`}>
         <Link href="/" className="cine-brand" aria-label="BIOVITY home"><span>BIOVITY</span></Link>
@@ -201,7 +202,9 @@ function Home() {
       <main id="home-content" className="cine-main">
         <section className="cine-hero cine-section cine-light" id="intro" data-cinema-model="twin">
           <div className="cine-hero-grid" aria-hidden="true" />
-          <div className="cine-hero-word" aria-hidden="true">BIOVITY</div>
+          <div className="cine-hero-stage" ref={heroRef} aria-hidden="true">
+            <div className="cine-hero-word">BIOVITY</div>
+          </div>
           <div className="cine-hero-copy">
             <p className="cine-label"><span className="cine-live-dot" />{heroSlides[0].tag}</p>
             <h1>{heroSlides[0].left}</h1>
