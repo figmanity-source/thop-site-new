@@ -75,10 +75,11 @@ function Helix({ root, paused = false }: { root: RefObject<THREE.Group | null>; 
   );
 }
 
-export function InlineHelix({ className = "sheet-inline-helix", showOnMobile = false, paused = false }: {
+export function InlineHelix({ className = "sheet-inline-helix", showOnMobile = false, paused = false, cameraDistance = 5.4 }: {
   className?: string;
   showOnMobile?: boolean;
   paused?: boolean;
+  cameraDistance?: number;
 }) {
   const root = useRef<THREE.Group>(null);
   const [visible, setVisible] = useState(false);
@@ -94,7 +95,12 @@ export function InlineHelix({ className = "sheet-inline-helix", showOnMobile = f
   return (
     <div className={className} aria-hidden="true">
       {(visible || showOnMobile) && (
-        <Canvas dpr={[1, 1.75]} gl={{ antialias: true, alpha: true }} camera={{ position: [0, 0, 5.4], fov: 35 }}>
+        <Canvas
+          dpr={[1, 1.75]}
+          resize={{ offsetSize: true }}
+          gl={{ antialias: true, alpha: true }}
+          camera={{ position: [0, 0, cameraDistance], fov: 35 }}
+        >
           <ambientLight intensity={0.45} />
           <directionalLight position={[3, 4, 5]} intensity={1.15} />
           <Suspense fallback={null}>

@@ -179,8 +179,8 @@ export default function CinematicHome() {
           <div className="cine-hero-grid" aria-hidden="true" />
           <div className="cine-hero-stage" aria-hidden="true">
             <div className="cine-hero-word">BIOVITY</div>
-            <InlineHelix className="cine-hero-helix" showOnMobile paused={paused || reduce} />
           </div>
+          <InlineHelix className="cine-hero-helix" showOnMobile paused={paused || reduce} cameraDistance={5.8} />
           <div className="cine-hero-copy">
             <p className="cine-label"><span className="cine-live-dot" />{heroSlides[0].tag}</p>
             <h1>{heroSlides[0].left}</h1>
