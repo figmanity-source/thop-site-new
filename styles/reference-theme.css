@@ -53,6 +53,25 @@
   font-size: clamp(40px, 11vw, 235px); font-weight: 500;
   line-height: .9; letter-spacing: -.075em; color: #0b0b0b; text-align: left; pointer-events: none;
 }
+.cine-hero-word > span {
+  display: inline-block;
+}
+@supports (background-clip: text) {
+  @media (any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .cine-hero-word > span {
+      background-image: radial-gradient(
+        ellipse clamp(100px, 20vw, 300px) clamp(65px, 9vw, 130px)
+        at var(--word-light-x, 50%) var(--word-light-y, 50%),
+        #818b92 0%, #4d555b 34%, #252a2d 68%, #0b0b0b 100%
+      );
+      background-clip: text;
+      transition: color .45s ease;
+    }
+    .cinematic-home:not(.motion-paused) .cine-hero-word[data-lit] > span {
+      color: transparent;
+    }
+  }
+}
 .cine-hero > .cine-hero-helix {
   position: absolute; top: 43svh; left: calc(75% - var(--cine-gutter) * .5);
   width: min(calc((100% - 2 * var(--cine-gutter)) * .4), 54svh);

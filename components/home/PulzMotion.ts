@@ -14,7 +14,7 @@ export function buildPulzMotion(root: HTMLElement, reduced: boolean) {
     intro.fromTo(hero.querySelector(".cine-hero-word"), { clipPath: "inset(0 0 100% 0)", y: 20 },
       { clipPath: "inset(0 0 0% 0)", y: 0, duration: 1.05, clearProps: "clipPath,transform" }, .18);
     const helix = hero.querySelector(".cine-hero-helix");
-    if (helix) intro.fromTo(helix, { opacity: 0 }, { opacity: 1, duration: 1, clearProps: "opacity" }, .24);
+    if (helix) intro.from(helix, { opacity: 0, duration: 1, clearProps: "opacity" }, .24);
     intro.fromTo(hero.querySelectorAll(".cine-hero-copy > *"), { opacity: .35, y: 20 },
       { opacity: 1, y: 0, duration: .85, stagger: .07, clearProps: "opacity,transform" }, .35);
   }

@@ -1,0 +1,155 @@
+﻿/* Home V2 shares the homepage layout and uses the reference's grayscale palette. */
+.cinematic-home-charcoal {
+  --charcoal-edge: #393939;
+  --charcoal-mid: #565656;
+  --charcoal-center: #707070;
+  --charcoal-text: #fff;
+  --charcoal-muted: #f5f5f5;
+  --charcoal-rule: #ffffff66;
+  --cine-bg: var(--charcoal-edge);
+  --cine-paper: var(--charcoal-edge);
+  --cine-ink: var(--charcoal-text);
+}
+
+/* Suppress shared component shadows only while Home V2 is active. */
+body:has(.cinematic-home-charcoal) :is(*, *::before, *::after) {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.cinematic-home-charcoal .cine-main > .cine-section,
+.cinematic-home-charcoal .cine-model-index {
+  --architectural-surface: transparent;
+  --cine-accent: var(--charcoal-text);
+  --cine-muted: var(--charcoal-muted);
+  --cine-line: var(--charcoal-rule);
+  color: var(--charcoal-text);
+  background: radial-gradient(ellipse at 50% 42%, var(--charcoal-center), var(--charcoal-mid) 55%, var(--charcoal-edge) 100%);
+}
+
+.cinematic-home-charcoal .cine-model-index,
+.cinematic-home-charcoal #loader {
+  background: var(--charcoal-edge);
+  color: var(--charcoal-text);
+}
+
+.cinematic-home-charcoal #loader .ld-bar i,
+.cinematic-home-charcoal .cine-live-dot {
+  background: var(--charcoal-text);
+}
+
+.cinematic-home-charcoal .cine-hero::before {
+  background: linear-gradient(180deg, transparent 58%, #39393980);
+}
+
+.cinematic-home-charcoal .cine-hero-copy::before {
+  background: transparent;
+}
+
+.cinematic-home-charcoal .cine-section :is(.cine-copy-panel, .cine-test-card, .cine-dashboard-grid article) {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.cinematic-home-charcoal .pulz-transition > span {
+  background: var(--charcoal-edge);
+}
+
+.cinematic-home-charcoal .cine-hero :is(.cine-hero-word, .cine-label, .cine-hero-manifesto, .cine-hero-manifesto span, .cine-hero-body),
+.cinematic-home-charcoal .cine-hero-footer > :is(span, a, button),
+.cinematic-home-charcoal .cine-model-index > a > span {
+  color: var(--charcoal-text);
+}
+
+.cinematic-home-charcoal .cine-hero > :is(.cine-hero-footer, .cine-specimen-label),
+.cinematic-home-charcoal .cine-hero .cine-orbit > div {
+  border-color: var(--charcoal-rule);
+}
+
+.cinematic-home-charcoal .cine-orbit i {
+  background: var(--charcoal-text);
+}
+
+.cinematic-home-charcoal .cine-specimen-label i {
+  filter: invert(1);
+}
+
+@supports (background-clip: text) {
+  @media (any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .cinematic-home-charcoal .cine-hero-word > span {
+      background-image: radial-gradient(
+        ellipse 180px 95px at var(--word-light-x, 50%) var(--word-light-y, 50%),
+        #fff, #dedede
+      );
+    }
+  }
+}
+
+.cinematic-home-charcoal .cine-main .cine-button,
+.cinematic-home-charcoal .cine-concierge {
+  border-color: var(--charcoal-rule);
+  background: #333;
+  color: var(--charcoal-text);
+}
+
+.cinematic-home-charcoal .cine-main .cine-button:hover,
+.cinematic-home-charcoal .cine-concierge:hover {
+  border-color: var(--charcoal-text);
+  background: #555;
+  color: var(--charcoal-text);
+}
+
+.cinematic-home-charcoal .cine-section :is(
+  .cine-stage-index, .cine-chapter-number, .cine-check-list li,
+  .cine-check-list li > span, .cine-test-card h3, .cine-process-list li > span,
+  .cine-faq summary > span, .cine-faq summary i, .cine-centre-grid figcaption
+),
+.cinematic-home-charcoal .cine-healthspan .cine-health-grid h2 > span,
+.cinematic-home-charcoal .cine-dashboard :is(.cine-data-row, .cine-data-row small, .cine-comparison-select) {
+  color: var(--charcoal-muted);
+}
+
+.cinematic-home-charcoal .cine-protocol .cine-stage-list > a:hover,
+.cinematic-home-charcoal .cine-twin .cine-zone-tabs button[aria-pressed=true] {
+  color: var(--charcoal-text);
+}
+
+.cinematic-home-charcoal .cine-twin .cine-zone-tabs button[aria-pressed=true],
+.cinematic-home-charcoal .cine-dashboard .cine-comparison-select[aria-pressed=true] {
+  border-color: var(--charcoal-text);
+}
+
+.cinematic-home-charcoal .cine-healthspan .life-bar-1 {
+  background: #eee;
+}
+
+.cinematic-home-charcoal .cine-centre-grid figcaption {
+  background: transparent;
+}
+
+body:has(.cinematic-home-charcoal) #header.inner-nav {
+  background: #393939ee;
+  color: #fff;
+  border-color: #ffffff66;
+}
+
+body:has(.cinematic-home-charcoal) #header.inner-nav :is(nav a, .sign-in, .menu-toggle) {
+  color: #fff;
+}
+
+body:has(.cinematic-home-charcoal) #header.inner-nav :is(nav a[aria-current=page], nav a:hover, .menu-toggle:hover) {
+  background-color: #ffffff26;
+}
+
+body:has(.cinematic-home-charcoal) #header.inner-nav .enquire {
+  background: #292929;
+  color: #fff;
+  border-color: #ffffff66;
+}
+
+@media (max-width: 767px) {
+  body:has(.cinematic-home-charcoal) #header.inner-nav nav {
+    background: #393939;
+    border-color: #ffffff66;
+  }
+}

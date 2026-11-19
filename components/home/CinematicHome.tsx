@@ -14,7 +14,6 @@ import { FooterColumns } from "../SiteFooter";
 import { BrandType } from "../BrandType";
 import { TabularDigits } from "../TabularDigits";
 import Loader from "../Loader";
-import SectionTransition from "./SectionTransition";
 import { buildPulzMotion } from "./PulzMotion";
 import ReflectiveCard from "./reflective-card/ReflectiveCard";
 import "../../styles/home.css";
@@ -23,6 +22,7 @@ import "../../styles/product-sections.css";
 import "../../styles/narrative.css";
 import "../../styles/pulz-theme.css";
 import "../../styles/header-motion.css";
+import "../../styles/home-v2.css";
 
 const Scene = dynamic(() => import("../three/Scene"), { ssr: false });
 const InlineHelix = dynamic(() => import("../three/InnerStage").then((module) => module.InlineHelix), { ssr: false });
@@ -49,7 +49,7 @@ function Chapter({ id, number, label, title, lead, children, model, light = fals
 }) {
   return (
     <section id={id} data-cinema-model={model ?? "none"} className={`cine-section ${light ? "cine-light" : ""} ${className}`}>
-      {["discover", "dox"].includes(id) && <SectionTransition />}
+
       <div className="cine-section-top"><span><BrandType text={label} /></span>{number && <span className="cine-numeral"><TabularDigits value={number} /></span>}</div>
       <div className="cine-section-body">
         <div className="cine-heading" data-cine-reveal>
@@ -64,14 +64,16 @@ function Chapter({ id, number, label, title, lead, children, model, light = fals
 }
 
 
-export default function CinematicHome() {
+export default function CinematicHome({ charcoal = false }: { charcoal?: boolean }) {
   const root = useRef<HTMLDivElement>(null);
+  const hero = useRef<HTMLElement>(null);
+  const heroWord = useRef<HTMLDivElement>(null);
   const [chapter, setChapter] = useState("intro");
   const [zone, setZone] = useState(0);
   const [comparison, setComparison] = useState(0);
   const [reduce, setReduce] = useState(false);
   const [paused, setPaused] = useState(false);
-  const [lightStage, setLightStage] = useState(true);
+  const [lightStage, setLightStage] = useState(!charcoal);
 
 
   useEffect(() => {
@@ -89,7 +91,7 @@ export default function CinematicHome() {
     const element = root.current;
     if (!element) return;
     const previousBackground = document.documentElement.style.background;
-    document.documentElement.style.background = "#e7e7e4";
+    document.documentElement.style.background = charcoal ? "#393939" : "#e7e7e4";
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const lenis = media.matches ? null : new Lenis({ lerp: 0.07, smoothWheel: true, wheelMultiplier: 0.85, anchors: { offset: -96 } });
     setLenis(lenis);
@@ -123,7 +125,7 @@ export default function CinematicHome() {
         element.querySelectorAll<HTMLElement>("[data-cinema-model]").forEach((section) => {
           const activate = () => {
             const key = section.dataset.cinemaModel;
-            const light = section.classList.contains("cine-light") || !!section.closest(".cine-light");
+            const light = !charcoal && !!section.closest(".cine-light");
             const identity = section.id;
             element.dataset.activeScene = identity;
             setLightStage(light);
@@ -159,33 +161,53 @@ export default function CinematicHome() {
     window.addEventListener("thop:ready", build, { once: true });
     window.addEventListener("resize", onResize);
     const fallback = window.setTimeout(build, 16000);
-    const pointer = (event: PointerEvent) => {
-      const rect = element.getBoundingClientRect();
-      element.style.setProperty("--pointer-x", `${event.clientX / Math.max(rect.width, 1) * 100}%`);
-    };
-    element.addEventListener("pointermove", pointer, { passive: true });
     return () => {
       window.clearTimeout(fallback); window.removeEventListener("thop:ready", build);
       window.clearTimeout(resizeTimer); window.removeEventListener("resize", onResize);
-      element.removeEventListener("pointermove", pointer);
       context?.revert(); gsap.killTweensOf([scene, scene.dna, scene.cell, scene.twin]);
       cleanWords?.();
       gsap.ticker.remove(tick); lenis?.destroy(); setLenis(null);
       document.documentElement.style.background = previousBackground;
     };
-  }, []);
+  }, [charcoal]);
+
+  useEffect(() => {
+    const section = hero.current;
+    const word = heroWord.current;
+    if (!section || !word || paused || reduce) return;
+    const pointerMedia = window.matchMedia("(any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference)");
+    const reset = () => word.removeAttribute("data-lit");
+    const move = (event: PointerEvent) => {
+      if (!pointerMedia.matches || event.pointerType === "touch") return;
+      const bounds = word.getBoundingClientRect();
+      word.style.setProperty("--word-light-x", `${event.clientX - bounds.left}px`);
+      word.style.setProperty("--word-light-y", `${event.clientY - bounds.top}px`);
+      word.setAttribute("data-lit", "");
+    };
+    section.addEventListener("pointermove", move, { passive: true });
+    section.addEventListener("pointerleave", reset);
+    section.addEventListener("pointercancel", reset);
+    pointerMedia.addEventListener("change", reset);
+    return () => {
+      section.removeEventListener("pointermove", move);
+      section.removeEventListener("pointerleave", reset);
+      section.removeEventListener("pointercancel", reset);
+      pointerMedia.removeEventListener("change", reset);
+      reset();
+    };
+  }, [paused, reduce]);
 
   return (
-    <div className="cinematic-home" ref={root}>
+    <div className={charcoal ? "cinematic-home cinematic-home-charcoal" : "cinematic-home"} ref={root}>
       <a className="cine-skip" href="#home-content">Skip to content</a>
       <Loader cinematic />
       <Scene cinematic paused={paused || reduce} lightBackground={lightStage} />
       <div className="cine-progress" aria-hidden="true"><div className="cine-progress-fill" /></div>
       <main id="home-content" className="cine-main">
-        <section className="cine-hero cine-section cine-light" id="intro" data-cinema-model="none">
+        <section ref={hero} className="cine-hero cine-section cine-light" id="intro" data-cinema-model="none">
           <div className="cine-hero-grid" aria-hidden="true" />
           <div className="cine-hero-stage" aria-hidden="true">
-            <div className="cine-hero-word">BIOVITY</div>
+            <div className="cine-hero-word" ref={heroWord}><span>BIOVITY</span></div>
           </div>
           <InlineHelix className="cine-hero-helix" showOnMobile paused={paused || reduce} cameraDistance={5.8} />
           <div className="cine-hero-copy">
@@ -259,7 +281,7 @@ export default function CinematicHome() {
         </section>
 
 
-        <section id="founder" className="cine-section cine-light cine-founder" data-cinema-model="none"><SectionTransition />
+        <section id="founder" className="cine-section cine-light cine-founder" data-cinema-model="none">
           <div className="cine-section-top"><span>The founder</span></div>
           <div className="cine-founder-grid">
             <Image
@@ -287,7 +309,7 @@ export default function CinematicHome() {
                 <li key={registration}>
                   <ReflectiveCard
                     className="cine-team-reflector"
-                    theme="light"
+                    theme={charcoal ? "dark" : "light"}
                     name={name}
                     role={role}
                     badge=""
@@ -319,7 +341,7 @@ export default function CinematicHome() {
 
         <section id="centre" className="cine-section cine-centre" data-cinema-model="none"><div className="cine-section-top"><span>{centre.label}</span></div><div className="cine-centre-grid"><div data-cine-reveal><p className="cine-label">{centre.label}</p><h2>{centre.title}</h2><p className="cine-lead">{centre.body}</p><Link href={centre.href} className="cine-button">{centre.cta}<Arrow /></Link></div><figure data-cine-reveal><img src={centre.image} alt="BIOVITY Centre visual" loading="lazy" /><figcaption>{centre.eyebrow}</figcaption></figure></div></section>
 
-        <section id="questions" className="cine-section cine-light cine-faq" data-cinema-model="none"><SectionTransition /><div className="cine-section-top"><span>Questions people ask</span></div><div className="cine-faq-grid"><h2 data-cine-reveal>Questions<br />people ask.</h2><div>{homepageFaqs.map((faq, index) => <details key={faq.q} data-cine-reveal><summary><span><TabularDigits value={String(index + 1).padStart(2, "0")} /></span>{faq.q}<i>+</i></summary><p>{faq.a}</p></details>)}</div></div></section>
+        <section id="questions" className="cine-section cine-light cine-faq" data-cinema-model="none"><div className="cine-section-top"><span>Questions people ask</span></div><div className="cine-faq-grid"><h2 data-cine-reveal>Questions<br />people ask.</h2><div>{homepageFaqs.map((faq, index) => <details key={faq.q} data-cine-reveal><summary><span><TabularDigits value={String(index + 1).padStart(2, "0")} /></span>{faq.q}<i>+</i></summary><p>{faq.a}</p></details>)}</div></div></section>
 
         <footer id="contact" className="cine-section cine-footer" data-cinema-model="none">
           <div className="cine-footer-intro">

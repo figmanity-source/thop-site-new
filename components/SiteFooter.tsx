@@ -22,6 +22,7 @@ export function FooterColumns({ approvedOnly = false }: { approvedOnly?: boolean
         {exploreLinks.filter((item) => !approvedOnly || item.href !== "/ethics-committee").map((item) => (
           <Link key={item.href} href={item.href}>{item.label}</Link>
         ))}
+        <Link href="/home-v2">Home V2</Link>
       </div>
       <div>
         <p className="footer-col-label">Contact</p>
